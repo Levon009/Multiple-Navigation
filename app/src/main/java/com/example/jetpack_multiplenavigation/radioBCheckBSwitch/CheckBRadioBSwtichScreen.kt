@@ -25,7 +25,7 @@ fun CheckBRadioBSwitchScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { /*TODO*/ },
+                title = {},
                 navigationIcon = {
                     IconButton(
                         onClick = {

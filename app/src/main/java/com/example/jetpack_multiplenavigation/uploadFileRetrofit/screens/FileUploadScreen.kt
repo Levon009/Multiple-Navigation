@@ -30,7 +30,7 @@ fun FileUploadScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { /*TODO*/ },
+                title = {},
                 navigationIcon = {
                     IconButton(onClick = {
                         navController.popBackStack()
