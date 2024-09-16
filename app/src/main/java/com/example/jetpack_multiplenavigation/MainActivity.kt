@@ -64,22 +64,22 @@ class MainActivity : ComponentActivity() {
             airPlaneModeReceiver,
             IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         )
-//        lifecycleScope.launch {
-//            repeatOnLifecycle(Lifecycle.State.STARTED) {
-//                flowViewModel.value.channelState.collectLatest { num ->
-//                    Log.e(tag, "ChannelFlow: $num")
-//                    // Go To Game Activity and return after 30 sec.
-//                }
-//            }
-//        }
-//        lifecycleScope.launch {
-//            repeatOnLifecycle(Lifecycle.State.STARTED) {
-//                flowViewModel.value.shareState.collectLatest { num ->
-//                    Log.e(tag, "SharedFlow: $num")
-//                    // Go To Game Activity and return after 30 sec.
-//                }
-//            }
-//        }
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                flowViewModel.value.channelState.collectLatest { num ->
+                    Log.e(tag, "ChannelFlow: $num")
+                    // Go To Game Activity and return after 30 sec.
+                }
+            }
+        }
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                flowViewModel.value.shareState.collectLatest { num ->
+                    Log.e(tag, "SharedFlow: $num")
+                    // Go To Game Activity and return after 30 sec.
+                }
+            }
+        }
         setContent {
             JetPack_MultipleNavigationTheme {
                 MultiplePermissionRequest(permissionsViewModel = permissionsViewModel)
