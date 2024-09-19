@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Sort
@@ -48,12 +49,15 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.jetpack_multiplenavigation.navigation.Routes
+import com.example.jetpack_multiplenavigation.notes.deleteWithSwipe.SwipeDeleteNoteContainer
+import com.example.jetpack_multiplenavigation.notes.domain.model.Note
 import com.example.jetpack_multiplenavigation.notes.presentation.notes.components.NoteItem
 import com.example.jetpack_multiplenavigation.notes.presentation.notes.components.OrderSection
 import com.example.jetpack_multiplenavigation.notes.sb.ObserveSB
 import com.example.jetpack_multiplenavigation.notes.sb.SBAction
 import com.example.jetpack_multiplenavigation.notes.sb.SBController
 import com.example.jetpack_multiplenavigation.notes.sb.SBEvent
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -173,37 +177,63 @@ fun NotesScreen(navController: NavHostController) {
                 Spacer(modifier = Modifier.height(16.dp))
             }
             LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(state.notes) { note ->
-                    NoteItem(
-                     note = note,
-                        onDeleteClick = {
+                itemsIndexed(
+                    state.notes,
+                    key = {_, note ->
+                        note.hashCode()
+                    }
+                ) { _, note ->
+                    SwipeDeleteNoteContainer(
+                        note = note,
+                        onRemove = {
                             viewModel.onEvent(NotesEvents.DeleteNote(note))
-                            scope.launch {
-                                SBController.sendEvent(
-                                    event = SBEvent(
-                                        message = "Note deleted.",
-                                        action = SBAction(
-                                            name = "Undo",
-                                            action = {
-                                                viewModel.onEvent(NotesEvents.RestoreNote)
-                                            }
-                                        )
-                                    )
+                            deleteNoteSnackBar(
+                                scope = scope,
+                                viewModel = viewModel
+                            )
+                        }
+                    ) {
+                        NoteItem(
+                            note = note,
+                            onDeleteClick = {
+                                viewModel.onEvent(NotesEvents.DeleteNote(note))
+                                deleteNoteSnackBar(
+                                    scope = scope,
+                                    viewModel = viewModel
                                 )
-                            }
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                navController.navigate(Routes.AddEditNotes(
-                                    noteId = note.id!!,
-                                    noteColor = note.color
-                                ))
-                            }
-                    )
+                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    navController.navigate(Routes.AddEditNotes(
+                                        noteId = note.id!!,
+                                        noteColor = note.color
+                                    ))
+                                }
+                        )
+                    }
                     Spacer(modifier = Modifier.height(16.dp))
                 }
             }
         }
+    }
+}
+
+private fun deleteNoteSnackBar(
+    scope: CoroutineScope,
+    viewModel: NotesViewModel
+) {
+    scope.launch {
+        SBController.sendEvent(
+            event = SBEvent(
+                message = "Note deleted.",
+                action = SBAction(
+                    name = "Undo",
+                    action = {
+                        viewModel.onEvent(NotesEvents.RestoreNote)
+                    }
+                )
+            )
+        )
     }
 }
