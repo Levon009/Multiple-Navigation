@@ -57,6 +57,8 @@ import com.example.jetpack_multiplenavigation.loading.LoadingScreen
 import com.example.jetpack_multiplenavigation.magnifierSection.MagnifierSection
 import com.example.jetpack_multiplenavigation.meditation.MeditationScreen
 import com.example.jetpack_multiplenavigation.music.MusicHandler
+import com.example.jetpack_multiplenavigation.notes.presentation.add_edit_note.AddEditNoteScreen
+import com.example.jetpack_multiplenavigation.notes.presentation.notes.NotesScreen
 import com.example.jetpack_multiplenavigation.notifications.NotificationsScreen
 import com.example.jetpack_multiplenavigation.optionMenu.OptionMenu
 import com.example.jetpack_multiplenavigation.permissions.screens.PermissionsScreen
@@ -86,6 +88,7 @@ import com.example.jetpack_multiplenavigation.textPrinter.TextPrinterScree
 import com.example.jetpack_multiplenavigation.uploadFileRetrofit.screens.FileUploadScreen
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import okhttp3.Route
 import org.koin.compose.KoinContext
 import kotlin.reflect.typeOf
 
@@ -1165,6 +1168,44 @@ fun NavGraph(
                     }
                 ) {
                     LoginScreen(navController = navController)
+                }
+                composable<Routes.Notes>(
+                    enterTransition = {
+                        return@composable fadeIn((tween(700)))
+                    }, popEnterTransition = {
+                        return@composable slideIntoContainer(
+                            AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                        )
+                    }, exitTransition = {
+                        return@composable fadeOut(tween(700))
+                    }, popExitTransition = {
+                        return@composable slideOutOfContainer(
+                            AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                        )
+                    }
+                ) {
+                    NotesScreen(navController = navController)
+                }
+                composable<Routes.AddEditNotes>(
+                    enterTransition = {
+                        return@composable fadeIn((tween(700)))
+                    }, popEnterTransition = {
+                        return@composable slideIntoContainer(
+                            AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                        )
+                    }, exitTransition = {
+                        return@composable fadeOut(tween(700))
+                    }, popExitTransition = {
+                        return@composable slideOutOfContainer(
+                            AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                        )
+                    }
+                ) {
+                    val args = it.toRoute<Routes.AddEditNotes>()
+                    AddEditNoteScreen(
+                        navController = navController,
+                        noteColor = args.noteColor
+                    )
                 }
             }
         }

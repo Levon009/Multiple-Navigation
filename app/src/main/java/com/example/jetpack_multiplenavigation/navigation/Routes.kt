@@ -232,4 +232,13 @@ sealed class Routes {
 
     @Serializable
     data object Authorization : Routes()
+
+    @Serializable
+    data object Notes : Routes()
+
+    @Serializable
+    data class AddEditNotes(
+        val noteId: Int = -1,
+        val noteColor: Int = -1
+    ) : Routes()
 }

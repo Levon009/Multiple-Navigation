@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Notes
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Home
@@ -22,6 +23,8 @@ import androidx.compose.material3.FilledTonalIconToggleButton
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.material3.IconToggleButtonColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
@@ -134,11 +137,41 @@ fun HomeScreenUI(navController: NavHostController) {
                         navController.navigate(Routes.StudentsListRoute)
                     }
                 },
+                colors = IconButtonDefaults.iconToggleButtonColors(
+                    containerColor = Color(0xFFFF7F50)
+                )
             ) {
                 Icon(
                     imageVector = Icons.Default.Check,
                     contentDescription = "Check",
-                    tint = Color.Magenta
+                    tint = Color.White
+                )
+            }
+            Spacer(modifier = Modifier.height(15.dp))
+            OutlinedButton(
+                onClick = {
+                    navController.navigate(Routes.Notes) {
+                        popUpTo<Routes.HomeScreen> {
+                            inclusive = false
+                        }
+                    }
+                },
+                elevation = ButtonDefaults.buttonElevation(25.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF70665A),
+                    contentColor = Color.LightGray
+                )
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Default.Notes,
+                    contentDescription = "Notes"
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+                Text(
+                    text = "Notes",
+                    color = Color.White,
+                    fontFamily = fontFamily,
+                    textAlign = TextAlign.Center
                 )
             }
             Spacer(modifier = Modifier.height(15.dp))
