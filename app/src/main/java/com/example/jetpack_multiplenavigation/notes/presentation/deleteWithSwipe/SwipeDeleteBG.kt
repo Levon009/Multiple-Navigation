@@ -1,4 +1,4 @@
-package com.example.jetpack_multiplenavigation.notes.deleteWithSwipe
+package com.example.jetpack_multiplenavigation.notes.presentation.deleteWithSwipe
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

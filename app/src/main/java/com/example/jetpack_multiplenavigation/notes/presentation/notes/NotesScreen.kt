@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -49,8 +48,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.jetpack_multiplenavigation.navigation.Routes
-import com.example.jetpack_multiplenavigation.notes.deleteWithSwipe.SwipeDeleteNoteContainer
-import com.example.jetpack_multiplenavigation.notes.domain.model.Note
+import com.example.jetpack_multiplenavigation.notes.presentation.deleteWithSwipe.SwipeDeleteNoteContainer
 import com.example.jetpack_multiplenavigation.notes.presentation.notes.components.NoteItem
 import com.example.jetpack_multiplenavigation.notes.presentation.notes.components.OrderSection
 import com.example.jetpack_multiplenavigation.notes.sb.ObserveSB
@@ -102,7 +100,7 @@ fun NotesScreen(navController: NavHostController) {
                 },
                 navigationIcon = {
                     IconButton(onClick = {
-                        navController.navigateUp()
+                        navController.navigate(Routes.HomeScreen)
                     }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Default.ArrowBack,
@@ -191,6 +189,7 @@ fun NotesScreen(navController: NavHostController) {
                                 scope = scope,
                                 viewModel = viewModel
                             )
+                            navController.navigate(Routes.Notes)
                         }
                     ) {
                         NoteItem(

@@ -1,4 +1,4 @@
-package com.example.jetpack_multiplenavigation.notes.deleteWithSwipe
+package com.example.jetpack_multiplenavigation.notes.presentation.deleteWithSwipe
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
