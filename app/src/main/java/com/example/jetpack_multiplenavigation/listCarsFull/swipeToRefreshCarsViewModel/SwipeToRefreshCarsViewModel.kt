@@ -27,7 +27,7 @@ class SwipeToRefreshCarsViewModel : ViewModel() {
         }.cancel()
     }
 
-    fun initializeJog() {
+    fun initializeJob() {
         job = Job()
         job?.invokeOnCompletion {
             it?.let {

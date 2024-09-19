@@ -40,7 +40,7 @@ fun CarsList(
     val swipeToRefreshCarsViewModel = viewModel<SwipeToRefreshCarsViewModel>()
     val isRefreshing = swipeToRefreshCarsViewModel.isRefreshing.collectAsState().value
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = isRefreshing)
-    swipeToRefreshCarsViewModel.initializeJog()
+    swipeToRefreshCarsViewModel.initializeJob()
     var overScrollJob by remember {
         mutableStateOf<Job?>(null)
     }
