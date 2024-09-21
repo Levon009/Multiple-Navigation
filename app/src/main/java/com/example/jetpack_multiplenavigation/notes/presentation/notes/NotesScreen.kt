@@ -41,6 +41,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -48,6 +49,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.jetpack_multiplenavigation.navigation.Routes
+import com.example.jetpack_multiplenavigation.notes.core.util.TestTags
 import com.example.jetpack_multiplenavigation.notes.presentation.deleteWithSwipe.SwipeDeleteNoteContainer
 import com.example.jetpack_multiplenavigation.notes.presentation.notes.components.NoteItem
 import com.example.jetpack_multiplenavigation.notes.presentation.notes.components.OrderSection
@@ -82,7 +84,7 @@ fun NotesScreen(navController: NavHostController) {
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
-                    contentDescription = "Add note"
+                    contentDescription = "Add"
                 )
             }
         },
@@ -154,7 +156,7 @@ fun NotesScreen(navController: NavHostController) {
                 }) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Default.Sort,
-                        contentDescription = "Sort notes"
+                        contentDescription = "Sort"
                     )
                 }
             }
@@ -171,6 +173,7 @@ fun NotesScreen(navController: NavHostController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp)
+                        .testTag(TestTags.ORDER_SECTION)
                 )
                 Spacer(modifier = Modifier.height(16.dp))
             }

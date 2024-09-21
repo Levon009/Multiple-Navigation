@@ -6,7 +6,9 @@ import androidx.navigation.NavHostController
 import com.example.draf.students.screensUI.AddStudentScreen
 import com.example.jetpack_multiplenavigation.students.studentsViewModel.StudentsViewModel
 import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.annotation.KoinExperimentalAPI
 
+@OptIn(KoinExperimentalAPI::class)
 @Composable
 fun AddStudent(navController: NavHostController) {
     val studentsViewModel = koinViewModel<StudentsViewModel>()

@@ -46,6 +46,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.example.jetpack_multiplenavigation.notes.core.util.TestTags
 import com.example.jetpack_multiplenavigation.notes.domain.model.Note
 import com.example.jetpack_multiplenavigation.notes.presentation.add_edit_note.components.TransparentHintTextField
 import com.example.jetpack_multiplenavigation.notes.sb.ObserveSB
@@ -105,7 +106,7 @@ fun AddEditNoteScreen(
             ) {
                 Icon(
                     imageVector = Icons.Default.Save,
-                    contentDescription = "Save note"
+                    contentDescription = "Save"
                 )
             }
         },
@@ -187,7 +188,8 @@ fun AddEditNoteScreen(
                 },
                 onFocusChange = {
                     viewModel.onEvent(AddEditNoteEvents.ChangeTitleFocus(it))
-                }
+                },
+                testTags = TestTags.TITLE_TEXT_FIELD
             )
             Spacer(modifier = Modifier.height(8.dp))
             TransparentHintTextField(
@@ -205,6 +207,7 @@ fun AddEditNoteScreen(
                 onFocusChange = {
                     viewModel.onEvent(AddEditNoteEvents.ChangeContentFocus(it))
                 },
+                testTags = TestTags.CONTENT_TEXT_FIELD,
                 modifier = Modifier.fillMaxHeight()
             )
         }

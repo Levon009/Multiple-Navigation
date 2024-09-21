@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.jetpack_multiplenavigation.students.core.util.TestTags
 import com.example.jetpack_multiplenavigation.students.data.StudentsEvent
 import com.example.jetpack_multiplenavigation.students.data.StudentsState
 
@@ -41,21 +42,24 @@ fun AddStudentScreen(
         ) {
             TextFieldContent(
                 text = firstName,
-                labelText = "First name"
+                labelText = "First name",
+                testTag = TestTags.STUDNET_NAME_TEXT_FIELD
             ) {
                 onEvent(StudentsEvent.SetFirstName(firstName.value))
             }
             Spacer(modifier = Modifier.height(10.dp))
             TextFieldContent(
                 text = secondName,
-                labelText = "Second name"
+                labelText = "Second name",
+                testTag = TestTags.STUDENT_SECONDNAME_TEXT_FIELD
             ) {
                 onEvent(StudentsEvent.SetSecondName(secondName.value))
             }
             Spacer(modifier = Modifier.height(10.dp))
             TextFieldContent(
                 text = age,
-                labelText = "Age"
+                labelText = "Age",
+                testTag = TestTags.STUDENT_AGE_TEXT_FIELD
             ) {
                 if (age.value.isNotBlank())
                     onEvent(StudentsEvent.SetAge(Integer.parseInt(age.value)))

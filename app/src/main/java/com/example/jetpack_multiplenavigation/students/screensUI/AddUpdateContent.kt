@@ -19,6 +19,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -31,6 +32,7 @@ import androidx.compose.ui.unit.sp
 fun TextFieldContent(
     text: MutableState<String>,
     labelText: String,
+    testTag: String = "",
     onValueChange: () -> Unit
 ) {
     val localKeyboard = LocalSoftwareKeyboardController.current
@@ -69,7 +71,8 @@ fun TextFieldContent(
             cursorColor = Color.Red,
             focusedContainerColor = Color.LightGray,
             focusedBorderColor = Color.DarkGray
-        )
+        ),
+        modifier = Modifier.testTag(testTag)
     )
 }
 

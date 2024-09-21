@@ -20,7 +20,8 @@ android {
         versionCode = 1
         versionName = "1.0"
         multiDexEnabled = true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        testInstrumentationRunner = "com.example.jetpack_multiplenavigation.InstrumentationTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -72,7 +73,6 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
-    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -132,4 +132,25 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     kapt("androidx.hilt:hilt-compiler:1.2.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    //Local Unit Tests
+    testImplementation("androidx.test:core:1.6.1")
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1")
+    testImplementation("com.google.truth:truth:1.1.3")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
+    testImplementation("io.mockk:mockk:1.10.5")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.7.2")
+    // Instrumentation tests
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.37")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.51.1")
+    androidTestImplementation("junit:junit:4.13.2")
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1")
+    androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
+    androidTestImplementation("com.google.truth:truth:1.1.3")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test:core-ktx:1.6.1")
+    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
+    androidTestImplementation("io.mockk:mockk-android:1.10.5")
+    androidTestImplementation("androidx.test:runner:1.6.2")
 }
