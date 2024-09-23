@@ -1,5 +1,7 @@
 package com.example.jetpack_multiplenavigation.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionLayout
@@ -91,6 +93,7 @@ import kotlinx.coroutines.launch
 import org.koin.compose.KoinContext
 import kotlin.reflect.typeOf
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 fun NavGraph(

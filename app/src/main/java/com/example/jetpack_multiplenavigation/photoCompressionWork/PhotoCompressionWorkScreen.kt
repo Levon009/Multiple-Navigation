@@ -2,7 +2,9 @@ package com.example.jetpack_multiplenavigation.photoCompressionWork
 
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -33,6 +35,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import java.time.Duration
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun PhotoCompressionWorkScreen(
     uriString: String,
