@@ -71,13 +71,6 @@ fun getFeatures() : List<Feature> {
             Beige3
         ),
         Feature(
-            title = "Tips for sleeping 2",
-            R.drawable.ic_videocam,
-            LightGreen1,
-            LightGreen2,
-            LightGreen3
-        ),
-        Feature(
             title = "Sleep meditation 2",
             R.drawable.ic_headphone,
             BlueViolet1,
@@ -85,18 +78,25 @@ fun getFeatures() : List<Feature> {
             BlueViolet3
         ),
         Feature(
-            title = "Night Island 3",
-            R.drawable.ic_headphone,
-            Beige1,
-            Beige2,
-            Beige3
-        ),
-        Feature(
-            title = "Calming Sounds 3",
+            title = "Tips for sleeping 2",
             R.drawable.ic_videocam,
             OrangeYellow1,
             OrangeYellow2,
             OrangeYellow3
+        ),
+        Feature(
+            title = "Tips for sleeping 3",
+            R.drawable.ic_videocam,
+            LightGreen1,
+            LightGreen2,
+            LightGreen3
+        ),
+        Feature(
+            title = "Sleep meditation 3",
+            R.drawable.ic_headphone,
+            BlueViolet1,
+            BlueViolet2,
+            BlueViolet3
         ),
         Feature(
             title = "Night Island 4",
@@ -113,14 +113,28 @@ fun getFeatures() : List<Feature> {
             OrangeYellow3
         ),
         Feature(
-            title = "Sleep Meditation 5",
+            title = "Night Island 5",
+            R.drawable.ic_headphone,
+            Beige1,
+            Beige2,
+            Beige3
+        ),
+        Feature(
+            title = "Calming Sounds 5",
+            R.drawable.ic_videocam,
+            OrangeYellow1,
+            OrangeYellow2,
+            OrangeYellow3
+        ),
+        Feature(
+            title = "Sleep Meditation 6",
             R.drawable.ic_headphone,
             mediumColor = BlueViolet1,
             lightColor = BlueViolet2,
             darkColor = BlueViolet3
         ),
         Feature(
-            title = "Tips for sleeping 5",
+            title = "Tips for sleeping 6",
             R.drawable.ic_videocam,
             LightGreen1,
             LightGreen2,
@@ -197,20 +211,20 @@ fun FeatureSection(
                         0 -> context.startActivity(Intent(context, GameActivity::class.java))
                         1 -> navController.navigate(Routes.Editor)
                         2 -> navController.navigate(Routes.Notes)
-                        4 -> navController.navigate(Routes.Products)
-                        5 -> navController.navigate(Routes.PersonsListFull(
+                        6 -> navController.navigate(Routes.Products)
+                        7 -> navController.navigate(Routes.PersonsListFull(
                             supportingText = "Person Item"
                         ))
-                        6 -> navController.navigate(Routes.SimpleAnimation(0))
-                        7 -> navController.navigate(Routes.OptionMenu(settings = "Settings", logOut = "Log out"))
-                        8 -> navController.navigate(Routes.Authorization)
-                        9 -> navController.navigate(Routes.EmailPreferences) {
+                        8 -> navController.navigate(Routes.SimpleAnimation(0))
+                        9 -> navController.navigate(Routes.OptionMenu(settings = "Settings", logOut = "Log out"))
+                        10 -> navController.navigate(Routes.Authorization)
+                        11 -> navController.navigate(Routes.EmailPreferences) {
                             popUpTo<Routes.HomeScreen>() {
                                 inclusive = false
                             }
                         }
-                        10 -> navController.navigate(Routes.MediaContents)
-                        11 -> navController.navigate(Routes.DaggerCustom)
+                        12 -> navController.navigate(Routes.MediaContents)
+                        13 -> navController.navigate(Routes.DaggerCustom)
                     }
                 }
             }

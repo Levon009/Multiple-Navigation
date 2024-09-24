@@ -1,5 +1,6 @@
 package com.example.jetpack_multiplenavigation.meditation
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,7 +15,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
+import com.example.jetpack_multiplenavigation.fragments.presentation.FragmentsActivity
 import com.example.jetpack_multiplenavigation.navigation.Routes
 import com.example.jetpack_multiplenavigation.ui.theme.DeepBlue
 import com.example.jetpack_multiplenavigation.ui.theme.LightRed
@@ -28,6 +31,7 @@ fun MeditationScreen(
     navController: NavHostController,
     onMenuClick: (Int) -> Unit,
 ) {
+    val context = LocalContext.current
     val scope = rememberCoroutineScope()
     var isSearchClick by remember {
         mutableStateOf(false)
@@ -98,6 +102,10 @@ fun MeditationScreen(
                         }
                         14 -> {
                             navController.navigate(Routes.Intents(""))
+                        } 15 -> {
+                            Intent(context, FragmentsActivity::class.java).apply {
+                                context.startActivity(this)
+                            }
                         }
                     }
                 }

@@ -41,7 +41,8 @@ fun getChips() : List<String> {
         "ExpendedList",
         "PickSaveImage",
         "Koin1",
-        "Intents"
+        "Intents",
+        "Fragments"
     )
 }
 
