@@ -44,6 +44,9 @@ interface ProductsApi {
     @GET("posts")
     fun getProducts(@QueryMap parameters: MutableMap<String?, String?>?) : Call<List<Post>>
 
+    @GET("posts")
+    suspend fun getProductsTest() : List<Post>
+
     @POST("posts")
     fun createProduct(@Body post: Post) : Call<Post>
 
