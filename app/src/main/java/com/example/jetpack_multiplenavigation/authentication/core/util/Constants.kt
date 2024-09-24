@@ -1,4 +1,4 @@
-package com.example.jetpack_multiplenavigation
+package com.example.jetpack_multiplenavigation.authentication.core.util
 
 import androidx.datastore.preferences.core.stringPreferencesKey
 

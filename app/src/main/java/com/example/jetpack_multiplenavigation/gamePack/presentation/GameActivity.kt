@@ -1,4 +1,4 @@
-package com.example.jetpack_multiplenavigation
+package com.example.jetpack_multiplenavigation.gamePack.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

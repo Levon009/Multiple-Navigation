@@ -52,10 +52,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
-import com.example.jetpack_multiplenavigation.Constants
+import com.example.jetpack_multiplenavigation.authentication.core.util.Constants
 import com.example.jetpack_multiplenavigation.authentication.common.UIEvents
 import com.example.jetpack_multiplenavigation.authentication.data.remote.request.AuthRequest
-import com.example.jetpack_multiplenavigation.authentication.presentation.AuthState
 import com.example.jetpack_multiplenavigation.authentication.presentation.AuthViewModel
 import com.example.jetpack_multiplenavigation.navigation.Routes
 import com.example.jetpack_multiplenavigation.ui.theme.PurpleBg
@@ -242,7 +241,7 @@ fun RegisterScreen(navController: NavHostController) {
                         keyboard?.hide()
                     }
                 ),
-                isError = authState.email.isBlank() || !Constants.emailRegex.matches(authState.email),
+                isError = authState.email.isBlank() || !Constants.passwordRegex.matches(authState.email),
                 trailingIcon = {
                     val imageVector = if (passwordVisible) {
                         Icons.Filled.Visibility

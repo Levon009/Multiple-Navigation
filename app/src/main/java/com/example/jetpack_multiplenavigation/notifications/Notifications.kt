@@ -152,5 +152,4 @@ fun notificationWithBigPicture(
         .build()
 
     notificationManager.notify(notificationId, notification)
-
 }

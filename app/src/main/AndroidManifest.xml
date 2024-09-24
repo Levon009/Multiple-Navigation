@@ -43,14 +43,14 @@
             android:name=".fragments.presentation.FragmentsActivity"
             android:exported="false" />
         <activity
-            android:name=".GameActivity"
+            android:name=".gamePack.presentation.GameActivity"
             android:configChanges="uiMode"
             android:exported="false"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
             tools:ignore="DiscouragedApi" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".splashScreen.presentation.SplashActivity"
             android:exported="true"
             android:noHistory="true"
             android:screenOrientation="fullSensor"

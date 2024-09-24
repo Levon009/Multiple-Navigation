@@ -24,7 +24,6 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButtonDefaults
-import androidx.compose.material3.IconToggleButtonColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
@@ -46,7 +45,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.jetpack_multiplenavigation.GameActivity
+import com.example.jetpack_multiplenavigation.gamePack.presentation.GameActivity
 import com.example.jetpack_multiplenavigation.R
 import com.example.jetpack_multiplenavigation.navigation.Routes
 import com.example.jetpack_multiplenavigation.ui.theme.OrangeYellow3

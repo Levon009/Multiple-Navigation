@@ -1,4 +1,4 @@
-package com.example.jetpack_multiplenavigation
+package com.example.jetpack_multiplenavigation.splashScreen.presentation
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -22,6 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.jetpack_multiplenavigation.MainActivity
+import com.example.jetpack_multiplenavigation.R
 import com.example.jetpack_multiplenavigation.ui.theme.JetPack_MultipleNavigationTheme
 import kotlinx.coroutines.delay
 

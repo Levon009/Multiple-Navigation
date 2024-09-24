@@ -3,7 +3,7 @@ package com.example.jetpack_multiplenavigation.authentication.data.local
 import android.content.Context
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.jetpack_multiplenavigation.Constants
+import com.example.jetpack_multiplenavigation.authentication.core.util.Constants
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

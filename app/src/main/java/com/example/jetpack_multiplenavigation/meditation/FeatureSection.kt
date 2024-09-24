@@ -33,7 +33,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.jetpack_multiplenavigation.GameActivity
+import com.example.jetpack_multiplenavigation.gamePack.presentation.GameActivity
 import com.example.jetpack_multiplenavigation.R
 import com.example.jetpack_multiplenavigation.meditation.feature.Feature
 import com.example.jetpack_multiplenavigation.meditation.feature.standardQuadTo

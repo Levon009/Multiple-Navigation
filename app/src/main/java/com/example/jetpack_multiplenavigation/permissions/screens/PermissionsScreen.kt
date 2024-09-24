@@ -1,13 +1,16 @@
 package com.example.jetpack_multiplenavigation.permissions.screens
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -47,6 +50,7 @@ import com.example.jetpack_multiplenavigation.permissions.PermissionsViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PermissionsScreen(navController: NavHostController) {
@@ -184,6 +188,7 @@ private fun Activity.goToAppSettings(context: Context) {
     }
 }
 
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun SinglePermissionRequest(permissionsViewModel: PermissionsViewModel) {
     val scope = rememberCoroutineScope()
@@ -204,6 +209,7 @@ fun SinglePermissionRequest(permissionsViewModel: PermissionsViewModel) {
     }
 }
 
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun MultiplePermissionRequest(permissionsViewModel: PermissionsViewModel) {
     val scope = rememberCoroutineScope()

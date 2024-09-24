@@ -30,7 +30,7 @@ fun NotificationPermission(context: Context) : ManagedActivityResultLauncher<Str
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
     ) { isGranted ->
-        hasNotificationPermission= isGranted
+        hasNotificationPermission = isGranted
     }
 
     return launcher
