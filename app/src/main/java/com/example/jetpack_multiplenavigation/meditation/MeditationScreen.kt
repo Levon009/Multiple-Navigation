@@ -100,13 +100,14 @@ fun MeditationScreen(
                                 }
                             }
                         }
-                        14 -> {
-                            navController.navigate(Routes.Intents(""))
-                        } 15 -> {
+                        14 -> navController.navigate(Routes.Intents(""))
+                        15 -> {
                             Intent(context, FragmentsActivity::class.java).apply {
                                 context.startActivity(this)
                             }
                         }
+                        16 -> navController.navigate(Routes.BottomTaskBarSection)
+                        17 -> navController.navigate(Routes.Constraints)
                     }
                 }
                 MeditationSection(color = LightRed)

@@ -1,6 +1,8 @@
 package com.example.jetpack_multiplenavigation.fragments.presentation.screens
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
@@ -40,6 +42,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.jetpack_multiplenavigation.MainActivity
 import com.example.jetpack_multiplenavigation.R
 import com.example.jetpack_multiplenavigation.fragments.core.util.BundleKeys
 import com.example.jetpack_multiplenavigation.fragments.presentation.EntityFragment
@@ -210,6 +213,24 @@ fun LoginScreen() {
         ) {
             Text(
                 text = "Submit",
+                fontSize = 16.sp,
+                fontFamily = FontFamily.Serif
+            )
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(
+            onClick = {
+                Intent(context, MainActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    context.startActivity(this)
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth(0.8f)
+                .height(50.dp)
+        ) {
+            Text(
+                text = "Home",
                 fontSize = 16.sp,
                 fontFamily = FontFamily.Serif
             )

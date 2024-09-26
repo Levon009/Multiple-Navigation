@@ -241,4 +241,10 @@ sealed class Routes {
         val noteId: Int = -1,
         val noteColor: Int = -1
     ) : Routes()
+
+    @Serializable
+    data object CustomSwipe : Routes()
+
+    @Serializable
+    data object Constraints : Routes()
 }

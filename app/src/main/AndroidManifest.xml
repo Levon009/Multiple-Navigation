@@ -79,7 +79,6 @@
                 <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
-
         <service android:name=".bindedServiceTimer.TimerService" />
         <service
             android:name=".chat.service.ChatFcmService"
@@ -88,7 +87,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <receiver
             android:name=".downloadManager.DownloadCompletedReceiver"
             android:exported="true">
@@ -97,5 +95,4 @@
             </intent-filter>
         </receiver>
     </application>
-
 </manifest>

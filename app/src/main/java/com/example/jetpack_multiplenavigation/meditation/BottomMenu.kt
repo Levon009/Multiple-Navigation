@@ -34,9 +34,9 @@ fun getMenuItems() : List<BottomMenuItem> {
     return listOf(
         BottomMenuItem("Home", R.drawable.ic_home),
         BottomMenuItem("Music", R.drawable.ic_music),
-        BottomMenuItem("Tasks", R.drawable.ic_moon),
+        BottomMenuItem("Contacts", R.drawable.ic_profile),
         BottomMenuItem("ExBox", R.drawable.ic_bubble),
-        BottomMenuItem("Timer", R.drawable.ic_profile),
+        BottomMenuItem("Timer", R.drawable.ic_moon),
     )
 }
 

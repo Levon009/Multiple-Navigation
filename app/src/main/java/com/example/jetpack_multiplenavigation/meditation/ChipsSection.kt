@@ -42,7 +42,9 @@ fun getChips() : List<String> {
         "PickSaveImage",
         "Koin1",
         "Intents",
-        "Fragments"
+        "Fragments",
+        "Tasks",
+        "Constraints"
     )
 }
 

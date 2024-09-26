@@ -30,6 +30,7 @@ import com.example.jetpack_multiplenavigation.broadcastDynamicReceiver.Broadcast
 import com.example.jetpack_multiplenavigation.chat.screens.ChatFcmScreen
 import com.example.jetpack_multiplenavigation.cipherManager.screens.EncryptDecryptScree
 import com.example.jetpack_multiplenavigation.coil.CoilScreens
+import com.example.jetpack_multiplenavigation.constraintsLayout.ConstraintsLayoutScreen
 import com.example.jetpack_multiplenavigation.contactsRoom1.contactsScreen.ContactsScreen
 import com.example.jetpack_multiplenavigation.contentProvider.contacts.screens.PhoneContactsScreen
 import com.example.jetpack_multiplenavigation.contentProvider.media.screens.MediaContentProviderScreen
@@ -86,10 +87,12 @@ import com.example.jetpack_multiplenavigation.textFields.TextFieldsScreen
 import com.example.jetpack_multiplenavigation.timer.Timer
 import com.example.jetpack_multiplenavigation.products.screens.ProductsScreen
 import com.example.jetpack_multiplenavigation.sharedPreferencesSP.SharedPreferencesScreen
+import com.example.jetpack_multiplenavigation.swipeWithActions.presentation.screens.CustomSwipeScreen
 import com.example.jetpack_multiplenavigation.textPrinter.TextPrinterScree
 import com.example.jetpack_multiplenavigation.uploadFileRetrofit.screens.FileUploadScreen
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import okhttp3.Route
 import org.koin.compose.KoinContext
 import kotlin.reflect.typeOf
 
@@ -184,10 +187,7 @@ fun NavGraph(
                         modifier = modifier,
                     ) {
                         when (it) {
-                            0 -> {
-                                navController.navigateUp()
-                            }
-
+                            0 -> navController.navigateUp()
                             1 -> {
                                 navController.navigate(
                                     Routes.MusicSection(
@@ -195,22 +195,15 @@ fun NavGraph(
                                     )
                                 )
                             }
-
                             2 -> {
-                                navController.navigate(Routes.BottomTaskBarSection)
+                                navController.navigate(Routes.CustomSwipe) {
+                                    popUpTo<Routes.MeditationScreen>() {
+                                        inclusive = false
+                                    }
+                                }
                             }
-
-                            3 -> {
-                                navController.navigate(
-                                    Routes.ExpandableBox(
-                                        text = "This is now revealed."
-                                    )
-                                )
-                            }
-
-                            4 -> {
-                                navController.navigate(Routes.TimerSection)
-                            }
+                            3 -> navController.navigate(Routes.ExpandableBox(text = "This is now revealed."))
+                            4 -> navController.navigate(Routes.TimerSection)
                         }
                     }
                 }
@@ -999,7 +992,9 @@ fun NavGraph(
                         )
                     }
                 ) {
-                    PermissionsScreen(navController = navController)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+                        PermissionsScreen(navController = navController)
+                    }
                 }
                 composable<Routes.TextPrinter>(
                     enterTransition = {
@@ -1050,7 +1045,9 @@ fun NavGraph(
                         )
                     }
                 ) {
-                    NotificationsScreen(navController = navController)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        NotificationsScreen(navController = navController)
+                    }
                 }
                 composable<Routes.MediaContents>(
                     enterTransition = {
@@ -1208,6 +1205,40 @@ fun NavGraph(
                         navController = navController,
                         noteColor = args.noteColor
                     )
+                }
+                composable<Routes.CustomSwipe>(
+                    enterTransition = {
+                        return@composable fadeIn(tween(700))
+                    }, popEnterTransition = {
+                        return@composable slideIntoContainer(
+                            AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                        )
+                    }, exitTransition = {
+                        return@composable fadeOut(tween(700))
+                    }, popExitTransition = {
+                        return@composable slideOutOfContainer(
+                            AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                        )
+                    }
+                ) {
+                    CustomSwipeScreen(navController = navController)
+                }
+                composable<Routes.Constraints>(
+                    enterTransition = {
+                        return@composable fadeIn(tween(700))
+                    }, popEnterTransition = {
+                        return@composable slideIntoContainer(
+                            AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                        )
+                    }, exitTransition = {
+                        return@composable fadeOut(tween(700))
+                    }, popExitTransition = {
+                        return@composable slideOutOfContainer(
+                            AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                        )
+                    }
+                ) {
+                    ConstraintsLayoutScreen(navController = navController)
                 }
             }
         }
