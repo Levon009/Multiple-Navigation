@@ -29,6 +29,7 @@ import com.example.jetpack_multiplenavigation.bottomTaskBar.TaskBar
 import com.example.jetpack_multiplenavigation.broadcastDynamicReceiver.BroadcastReceiverScreen
 import com.example.jetpack_multiplenavigation.chat.screens.ChatFcmScreen
 import com.example.jetpack_multiplenavigation.cipherManager.screens.EncryptDecryptScree
+import com.example.jetpack_multiplenavigation.circleAnimation.CircleAnimationScreen
 import com.example.jetpack_multiplenavigation.coil.CoilScreens
 import com.example.jetpack_multiplenavigation.constraintsLayout.ConstraintsLayoutScreen
 import com.example.jetpack_multiplenavigation.contactsRoom1.contactsScreen.ContactsScreen
@@ -1239,6 +1240,23 @@ fun NavGraph(
                     }
                 ) {
                     ConstraintsLayoutScreen(navController = navController)
+                }
+                composable<Routes.CircleAnimation>(
+                    enterTransition = {
+                        return@composable fadeIn(tween(700))
+                    }, popEnterTransition = {
+                        return@composable slideIntoContainer(
+                            AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                        )
+                    }, exitTransition = {
+                        return@composable fadeOut(tween(700))
+                    }, popExitTransition = {
+                        return@composable slideOutOfContainer(
+                            AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                        )
+                    }
+                ) {
+                    CircleAnimationScreen(navController = navController)
                 }
             }
         }

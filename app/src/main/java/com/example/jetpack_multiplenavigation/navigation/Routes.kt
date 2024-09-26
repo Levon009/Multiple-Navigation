@@ -247,4 +247,7 @@ sealed class Routes {
 
     @Serializable
     data object Constraints : Routes()
+
+    @Serializable
+    data object CircleAnimation : Routes()
 }

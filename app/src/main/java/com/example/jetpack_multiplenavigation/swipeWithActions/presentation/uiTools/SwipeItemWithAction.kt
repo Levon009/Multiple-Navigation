@@ -22,7 +22,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntOffset
@@ -101,11 +100,13 @@ fun SwipeItemWithAction(
                                 offset.value > contentWidth / 2f -> {
                                     scope.launch {
                                         offset.animateTo(contentWidth)
+                                        onExpended()
                                     }
                                 }
                                 else -> {
                                     scope.launch {
                                         offset.animateTo(0f)
+                                        onCollapsed()
                                     }
                                 }
                             }

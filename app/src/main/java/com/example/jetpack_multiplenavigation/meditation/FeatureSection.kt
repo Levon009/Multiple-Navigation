@@ -211,6 +211,7 @@ fun FeatureSection(
                         0 -> context.startActivity(Intent(context, GameActivity::class.java))
                         1 -> navController.navigate(Routes.Editor)
                         2 -> navController.navigate(Routes.Notes)
+                        3 -> navController.navigate(Routes.CircleAnimation)
                         6 -> navController.navigate(Routes.Products)
                         7 -> navController.navigate(Routes.PersonsListFull(
                             supportingText = "Person Item"
