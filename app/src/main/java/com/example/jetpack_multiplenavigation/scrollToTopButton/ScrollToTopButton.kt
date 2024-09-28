@@ -12,6 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
@@ -21,7 +22,7 @@ fun ScrollToTopButton(
     isEnabled: Boolean = true
 ) {
     val scope = rememberCoroutineScope()
-    val job = remember {
+    var job by remember {
         mutableStateOf<Job?>(null)
     }
     val showScrollToTopButton by remember(isEnabled) {
@@ -32,13 +33,13 @@ fun ScrollToTopButton(
 
     DisposableEffect(Unit) {
         onDispose {
-            job.value?.cancel()
+            job?.cancel()
         }
     }
 
     if (showScrollToTopButton) {
         FloatingActionButton(onClick = {
-            scope.launch {
+            job = scope.launch {
                 state.animateScrollToItem(0)
             }
         }) {
