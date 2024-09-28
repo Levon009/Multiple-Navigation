@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Fastfood
@@ -34,15 +35,22 @@ import com.example.jetpack_multiplenavigation.listSwipeDropMenu.data.allLanguage
 import com.example.jetpack_multiplenavigation.listSwipeDropMenu.dropDownMenu.LanguageItemUI
 import com.example.jetpack_multiplenavigation.listSwipeDropMenu.dropDownMenu.getAllDropMenuItems
 import com.example.jetpack_multiplenavigation.listSwipeDropMenu.swipeToDelete.SwipeToDeleteContainer
+import com.example.jetpack_multiplenavigation.scrollToTopButton.ScrollToTopButton
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LanguagesScreen(navController: NavHostController) {
     val context = (LocalContext.current as? Activity)
+    val state = rememberLazyListState()
     val allLanguages = allLanguages
     val dropMenuItems = getAllDropMenuItems()
     Scaffold(
+        floatingActionButton = {
+            ScrollToTopButton(
+                state = state
+            )
+        },
         topBar = {
             TopAppBar(
                 modifier = Modifier.shadow(elevation = 15.dp),

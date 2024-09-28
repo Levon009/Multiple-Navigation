@@ -62,7 +62,7 @@ fun ProduceStateScreen(navController: NavHostController) {
                 .fillMaxSize()
                 .padding(paddingValues),
         ) {
-            var counter = produceState(initialValue = 0) {
+            val counter = produceState(initialValue = 0) {
                 delay(3500L)
                 value = 5
             }

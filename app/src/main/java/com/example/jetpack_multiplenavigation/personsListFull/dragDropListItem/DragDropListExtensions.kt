@@ -1,4 +1,4 @@
-package com.example.draf.personsListFull.dragDropListItem
+package com.example.jetpack_multiplenavigation.personsListFull.dragDropListItem
 
 import androidx.compose.foundation.lazy.LazyListItemInfo
 import androidx.compose.foundation.lazy.LazyListState

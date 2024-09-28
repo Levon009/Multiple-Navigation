@@ -1,4 +1,4 @@
-package com.example.draf.personsListFull.swipeToDelete
+package com.example.jetpack_multiplenavigation.personsListFull.swipeToDelete
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -14,7 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import com.example.draf.personsListFull.data.Person
+import com.example.jetpack_multiplenavigation.personsListFull.data.Person
 import kotlinx.coroutines.delay
 
 @Composable

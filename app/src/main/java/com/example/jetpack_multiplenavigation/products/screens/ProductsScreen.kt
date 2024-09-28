@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -52,15 +53,18 @@ import coil.size.Size
 import com.example.jetpack_multiplenavigation.navigation.Routes
 import com.example.jetpack_multiplenavigation.products.retrofit.data.model.Product
 import com.example.jetpack_multiplenavigation.products.retrofit.presentation.ProductsViewModel
+import com.example.jetpack_multiplenavigation.scrollToTopButton.ScrollToTopButton
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.annotation.KoinExperimentalAPI
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, KoinExperimentalAPI::class)
 @Composable
 fun ProductsScreen(
     navController: NavHostController
 ) {
     val context = LocalContext.current
+    val lazyListState = rememberLazyListState()
     val productsViewModel = koinViewModel<ProductsViewModel>()
     val products = productsViewModel.products.collectAsState().value
     val state = productsViewModel.state
@@ -72,6 +76,9 @@ fun ProductsScreen(
         }
     }
     Scaffold(
+        floatingActionButton = {
+            ScrollToTopButton(state = lazyListState)
+        },
         topBar = {
             TopAppBar(
                 title = {
@@ -124,6 +131,7 @@ fun ProductsScreen(
                     modifier = Modifier.fillMaxSize() 
                 ) {
                     LazyColumn(
+                        state = lazyListState,
                         horizontalAlignment = Alignment.CenterHorizontally,
                         contentPadding = PaddingValues(16.dp),
                         modifier = Modifier

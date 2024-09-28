@@ -1,4 +1,4 @@
-package com.example.draf.swipeToRefresh
+package com.example.jetpack_multiplenavigation.personsListFull.swipeToRefresh
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

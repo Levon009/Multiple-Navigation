@@ -1,4 +1,4 @@
-package com.example.draf.personsListFull
+package com.example.jetpack_multiplenavigation.personsListFull
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -25,8 +25,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavHostController
-import com.example.draf.personsListFull.data.reorderItem
-import com.example.draf.personsListFull.dragDropListItem.move
+import com.example.jetpack_multiplenavigation.personsListFull.data.reorderItem
+import com.example.jetpack_multiplenavigation.personsListFull.dragDropListItem.move
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)

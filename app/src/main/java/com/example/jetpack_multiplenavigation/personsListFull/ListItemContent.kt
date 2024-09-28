@@ -1,4 +1,4 @@
-package com.example.draf.personsListFull
+package com.example.jetpack_multiplenavigation.personsListFull
 
 import android.app.Activity
 import android.widget.Toast
@@ -44,9 +44,9 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
-import com.example.draf.personsListFull.dragDropListItem.DragDropListState
-import com.example.draf.personsListFull.dropOptionMenu.DropMenuItem
-import com.example.draf.personsListFull.dropOptionMenu.DropOptionMenuItem
+import com.example.jetpack_multiplenavigation.personsListFull.dragDropListItem.DragDropListState
+import com.example.jetpack_multiplenavigation.personsListFull.dropOptionMenu.DropMenuItem
+import com.example.jetpack_multiplenavigation.personsListFull.dropOptionMenu.DropOptionMenuItem
 
 @Composable
 fun ListItemContent(

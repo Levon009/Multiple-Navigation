@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Sort
@@ -57,6 +58,7 @@ import com.example.jetpack_multiplenavigation.notes.sb.ObserveSB
 import com.example.jetpack_multiplenavigation.notes.sb.SBAction
 import com.example.jetpack_multiplenavigation.notes.sb.SBController
 import com.example.jetpack_multiplenavigation.notes.sb.SBEvent
+import com.example.jetpack_multiplenavigation.scrollToTopButton.ScrollToTopButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -65,6 +67,7 @@ import kotlinx.coroutines.launch
 fun NotesScreen(navController: NavHostController) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
+    val lazyListState = rememberLazyListState()
     val viewModel = hiltViewModel<NotesViewModel>()
     val state = viewModel.state.value
     val snackBarHostState = remember {
@@ -76,16 +79,26 @@ fun NotesScreen(navController: NavHostController) {
             SnackbarHost(hostState = snackBarHostState)
         },
         floatingActionButton = {
-            FloatingActionButton(
-                onClick = {
-                    navController.navigate(Routes.AddEditNotes())
-                },
-                containerColor = MaterialTheme.colorScheme.primary
+            Row(
+                verticalAlignment = Alignment.Bottom,
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
             ) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = "Add"
-                )
+                FloatingActionButton(
+                    onClick = {
+                        navController.navigate(Routes.AddEditNotes())
+                    },
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(horizontal = 18.dp, vertical = 5.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Add"
+                    )
+                }
+                ScrollToTopButton(state = lazyListState)
             }
         },
         topBar = {
@@ -143,7 +156,9 @@ fun NotesScreen(navController: NavHostController) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(25.dp)
             ) {
                 Text(
                     text = "Your note",
@@ -177,7 +192,10 @@ fun NotesScreen(navController: NavHostController) {
                 )
                 Spacer(modifier = Modifier.height(16.dp))
             }
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
+            LazyColumn(
+                state = lazyListState,
+                modifier = Modifier.fillMaxSize()
+            ) {
                 itemsIndexed(
                     state.notes,
                     key = {_, note ->

@@ -9,8 +9,8 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
-import com.example.draf.personsListFull.dragDropListItem.getVisibleListItemInfo
-import com.example.draf.personsListFull.dragDropListItem.offsetEnd
+import com.example.jetpack_multiplenavigation.personsListFull.dragDropListItem.getVisibleListItemInfo
+import com.example.jetpack_multiplenavigation.personsListFull.dragDropListItem.offsetEnd
 import kotlinx.coroutines.Job
 
 class StudentsDragListState(

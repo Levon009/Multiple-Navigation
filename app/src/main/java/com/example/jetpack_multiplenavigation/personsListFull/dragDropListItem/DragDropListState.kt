@@ -1,4 +1,4 @@
-package com.example.draf.personsListFull.dragDropListItem
+package com.example.jetpack_multiplenavigation.personsListFull.dragDropListItem
 
 import androidx.compose.foundation.lazy.LazyListItemInfo
 import androidx.compose.foundation.lazy.LazyListState
@@ -13,15 +13,15 @@ class DragDropListState(
     val lazyListState: LazyListState,
     private val onMove: (Int, Int) -> Unit
 ) {
-    var draggedDistance by mutableFloatStateOf(0f)
-    var draggedItem by mutableStateOf<LazyListItemInfo?>(null)
+    private var draggedDistance by mutableFloatStateOf(0f)
+    private var draggedItem by mutableStateOf<LazyListItemInfo?>(null)
     var draggedItemIndex by mutableStateOf<Int?>(null)
-    var overScrollJob by mutableStateOf<Job?>(null)
-    val currentItem: LazyListItemInfo?
+    private var overScrollJob by mutableStateOf<Job?>(null)
+    private val currentItem: LazyListItemInfo?
         get() = draggedItemIndex?.let {
             lazyListState.getVisibleListItemInfo(absolute = it)
         }
-    val initialOffset: Pair<Int, Int>?
+    private val initialOffset: Pair<Int, Int>?
         get() = draggedItem?.let { item ->
             Pair(item.offset, item.offsetEnd)
         }

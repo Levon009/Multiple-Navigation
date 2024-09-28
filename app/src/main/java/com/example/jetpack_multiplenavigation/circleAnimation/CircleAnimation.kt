@@ -61,8 +61,8 @@ class CircleAnimation : View {
         canvas.drawBitmap(bitmap!!, bcx.toFloat(), bcy.toFloat(), paint)
         //canvas.drawCircle(centerX.toFloat(), centerY.toFloat(), radius.toFloat(), paint)
 
-        newBallX = ((centerX + radius * sin(Math.toRadians(angle.value.toDouble()))).toFloat())
-        newBallY = ((centerY + radius * cos(Math.toRadians(angle.value.toDouble()))).toFloat())
+        newBallX = ((centerX + radius * sin(Math.toRadians(angle.intValue.toDouble()))).toFloat())
+        newBallY = ((centerY + radius * cos(Math.toRadians(angle.intValue.toDouble()))).toFloat())
         paint.color = Color.BLACK
         paint.style = Paint.Style.FILL
         canvas.drawCircle(newBallX, newBallY, 15.toFloat(), paint)

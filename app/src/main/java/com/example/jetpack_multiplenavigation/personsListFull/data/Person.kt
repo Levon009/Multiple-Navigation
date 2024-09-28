@@ -1,4 +1,4 @@
-package com.example.draf.personsListFull.data
+package com.example.jetpack_multiplenavigation.personsListFull.data
 
 data class Person(
     val name: String,

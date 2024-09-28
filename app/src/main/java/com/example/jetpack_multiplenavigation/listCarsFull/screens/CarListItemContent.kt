@@ -1,5 +1,6 @@
 package com.example.jetpack_multiplenavigation.listCarsFull.screens
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.widget.Toast
 import androidx.compose.animation.core.Spring
@@ -55,6 +56,7 @@ import com.example.jetpack_multiplenavigation.listCarsFull.carDropOptionMenu.get
 import com.example.jetpack_multiplenavigation.listCarsFull.carsDragDropListItem.DragDropCarsListState
 import com.example.jetpack_multiplenavigation.listCarsFull.carsExpendedList.CarsExpendedListContent
 
+@SuppressLint("UnnecessaryComposedModifier")
 @Composable
 fun CarListItemContent(
     name: String,

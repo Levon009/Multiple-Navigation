@@ -1,4 +1,4 @@
-package com.example.draf.personsListFull.swipeToDelete
+package com.example.jetpack_multiplenavigation.personsListFull.swipeToDelete
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

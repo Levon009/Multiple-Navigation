@@ -8,6 +8,7 @@ import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
@@ -37,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.jetpack_multiplenavigation.navigation.Routes
 import com.example.jetpack_multiplenavigation.pet.data.PetDataSource
+import com.example.jetpack_multiplenavigation.scrollToTopButton.ScrollToTopButton
 
 @OptIn(ExperimentalSharedTransitionApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -48,12 +50,16 @@ fun PetsHomeScreen(
     onPetClick: (Int) -> Unit
 ) {
     val context = (LocalContext.current  as? Activity)
+    val state = rememberLazyListState()
     val petList = PetDataSource.petList
     var showMenu by remember {
         mutableStateOf(false)
     }
     Scaffold(
         modifier = modifier,
+        floatingActionButton = {
+            ScrollToTopButton(state = state)
+        },
         topBar = {
             TopAppBar(
                 title = {
@@ -115,7 +121,10 @@ fun PetsHomeScreen(
             )
         }
     ) { paddingValues ->
-        LazyColumn(contentPadding = paddingValues) {
+        LazyColumn(
+            state = state,
+            contentPadding = paddingValues
+        ) {
             itemsIndexed(petList) { index, pet ->
                 PetInfoItem(
                     pet = pet,

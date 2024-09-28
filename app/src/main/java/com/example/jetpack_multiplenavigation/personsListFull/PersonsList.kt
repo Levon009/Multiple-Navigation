@@ -1,4 +1,4 @@
-package com.example.draf.personsListFull
+package com.example.jetpack_multiplenavigation.personsListFull
 
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.gestures.scrollBy
@@ -19,11 +19,11 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.draf.personsListFull.data.Person
+import com.example.jetpack_multiplenavigation.personsListFull.data.Person
 import com.example.draf.personsListFull.dragDropListItem.rememberDragListState
-import com.example.draf.personsListFull.dropOptionMenu.getAllDropMenuItems
-import com.example.draf.personsListFull.swipeToDelete.SwipeToDeleteContainer
-import com.example.draf.swipeToRefresh.RefreshViewModel
+import com.example.jetpack_multiplenavigation.personsListFull.dropOptionMenu.getAllDropMenuItems
+import com.example.jetpack_multiplenavigation.personsListFull.swipeToDelete.SwipeToDeleteContainer
+import com.example.jetpack_multiplenavigation.personsListFull.swipeToRefresh.RefreshViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -42,7 +42,6 @@ fun PersonsList(
         mutableStateOf<Job?>(null)
     }
     val dropMenuItems = getAllDropMenuItems()
-
     val refreshViewModel = viewModel<RefreshViewModel>()
     val isRefreshing = refreshViewModel.isRefreshing.collectAsStateWithLifecycle()
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = isRefreshing.value)

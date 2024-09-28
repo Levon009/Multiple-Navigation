@@ -1,4 +1,4 @@
-package com.example.draf.personsListFull.dropOptionMenu
+package com.example.jetpack_multiplenavigation.personsListFull.dropOptionMenu
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

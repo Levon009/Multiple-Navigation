@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
@@ -33,6 +34,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.jetpack_multiplenavigation.scrollToTopButton.ScrollToTopButton
 import com.example.jetpack_multiplenavigation.swipeWithActions.data.allSwipeAbleContacts
 import com.example.jetpack_multiplenavigation.swipeWithActions.data.model.SwipeAbleContacts
 import com.example.jetpack_multiplenavigation.swipeWithActions.presentation.uiTools.ActionIcon
@@ -42,8 +44,12 @@ import com.example.jetpack_multiplenavigation.swipeWithActions.presentation.uiTo
 @Composable
 fun CustomSwipeScreen(navController: NavHostController) {
     val context = LocalContext.current
+    val state = rememberLazyListState()
     val contacts = allSwipeAbleContacts
     Scaffold(
+        floatingActionButton = {
+            ScrollToTopButton(state = state)
+        },
         topBar = {
             TopAppBar(
                 title = {
@@ -79,7 +85,7 @@ fun CustomSwipeScreen(navController: NavHostController) {
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            LazyColumn {
+            LazyColumn(state = state) {
                 itemsIndexed(
                     items = contacts,
                     key = { _, contact ->

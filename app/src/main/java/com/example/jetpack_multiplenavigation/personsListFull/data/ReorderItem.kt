@@ -1,7 +1,7 @@
-package com.example.draf.personsListFull.data
+package com.example.jetpack_multiplenavigation.personsListFull.data
 
 import androidx.compose.runtime.toMutableStateList
-import com.example.draf.personsListFull.data.Person
+import com.example.jetpack_multiplenavigation.personsListFull.data.Person
 
 val reorderItem = listOf(
     Person("Levon"),

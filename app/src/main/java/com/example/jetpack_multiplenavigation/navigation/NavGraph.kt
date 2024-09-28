@@ -19,7 +19,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.example.draf.personsListFull.PersonsListScreen
+import com.example.jetpack_multiplenavigation.personsListFull.PersonsListScreen
 import com.example.draf.students.data.model.Student
 import com.example.jetpack_multiplenavigation.authentication.presentation.screens.AuthorizationScreen
 import com.example.jetpack_multiplenavigation.authentication.presentation.screens.LoginScreen
@@ -93,7 +93,6 @@ import com.example.jetpack_multiplenavigation.textPrinter.TextPrinterScree
 import com.example.jetpack_multiplenavigation.uploadFileRetrofit.screens.FileUploadScreen
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import okhttp3.Route
 import org.koin.compose.KoinContext
 import kotlin.reflect.typeOf
 

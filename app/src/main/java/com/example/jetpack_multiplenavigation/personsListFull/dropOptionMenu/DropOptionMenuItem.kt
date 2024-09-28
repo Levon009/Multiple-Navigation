@@ -1,4 +1,4 @@
-package com.example.draf.personsListFull.dropOptionMenu
+package com.example.jetpack_multiplenavigation.personsListFull.dropOptionMenu
 
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
@@ -6,6 +6,7 @@ import androidx.compose.material3.MenuDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import com.example.jetpack_multiplenavigation.personsListFull.dropOptionMenu.DropMenuItem
 
 @Composable
 fun DropOptionMenuItem(

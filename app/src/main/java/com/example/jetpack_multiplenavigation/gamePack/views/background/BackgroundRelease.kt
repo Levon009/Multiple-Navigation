@@ -6,7 +6,7 @@ import android.graphics.Canvas
 import com.example.airfighers_jetpack.gamePack.views.airObject.AirObject
 import com.example.jetpack_multiplenavigation.R
 
-class BackgroundRelease(context: Context, airObject: AirObject) {
+open class BackgroundRelease(context: Context, airObject: AirObject) {
     private var context: Context
     private var background: Background
     private var airObject: AirObject

@@ -1,6 +1,5 @@
 package com.example.jetpack_multiplenavigation.listCarsFull.screens
 
-import android.app.Activity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,14 +21,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.draf.personsListFull.dragDropListItem.move
+import com.example.jetpack_multiplenavigation.personsListFull.dragDropListItem.move
 import com.example.jetpack_multiplenavigation.listCarsFull.data.carList
 import com.example.jetpack_multiplenavigation.listCarsFull.dialogs.CallCarsDialogs
 import com.example.jetpack_multiplenavigation.listCarsFull.dialogs.CarsDialogViewModel
@@ -39,7 +37,6 @@ import com.example.jetpack_multiplenavigation.ui.theme.BlueViolet1
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CarsListScreen(navController: NavHostController) {
-    val context = (LocalContext.current as? Activity)
     val cars = carList
     val carsDialogViewModel = viewModel<CarsDialogViewModel>()
     val sheetState = rememberModalBottomSheetState()
