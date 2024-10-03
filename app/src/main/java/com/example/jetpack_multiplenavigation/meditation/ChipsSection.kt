@@ -44,7 +44,8 @@ fun getChips() : List<String> {
         "Intents",
         "Fragments",
         "Tasks",
-        "Constraints"
+        "Constraints",
+        "Observable"
     )
 }
 

@@ -250,4 +250,7 @@ sealed class Routes {
 
     @Serializable
     data object CircleAnimation : Routes()
+
+    @Serializable
+    data object TimerObservable : Routes()
 }

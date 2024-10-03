@@ -3,7 +3,10 @@ package com.example.jetpack_multiplenavigation.home
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -42,6 +45,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.jetpack_multiplenavigation.timerObservable.TimerObservableScreen
 
 fun getNavItems() : List<NavItemState> {
     return listOf(
@@ -164,7 +168,10 @@ fun HomeScreen(
                     color = Color.Magenta
                 )
             } else {
-                HomeScreenUI(navController)
+                Column(modifier = Modifier.fillMaxSize()) {
+                    TimerObservableScreen(navController = navController)
+                    HomeScreenUI(navController)
+                }
             }
         }
     }

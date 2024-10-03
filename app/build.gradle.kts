@@ -153,4 +153,7 @@ dependencies {
     androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
     androidTestImplementation("io.mockk:mockk-android:1.10.5")
     androidTestImplementation("androidx.test:runner:1.6.2")
+    // RxJava
+    implementation("io.reactivex.rxjava3:rxkotlin:3.0.0")
+    implementation("io.reactivex.rxjava3:rxjava:3.0.2")
 }

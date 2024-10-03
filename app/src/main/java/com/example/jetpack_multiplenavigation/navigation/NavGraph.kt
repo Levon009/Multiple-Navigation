@@ -8,6 +8,7 @@ import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -90,6 +91,7 @@ import com.example.jetpack_multiplenavigation.products.screens.ProductsScreen
 import com.example.jetpack_multiplenavigation.sharedPreferencesSP.SharedPreferencesScreen
 import com.example.jetpack_multiplenavigation.swipeWithActions.presentation.screens.CustomSwipeScreen
 import com.example.jetpack_multiplenavigation.textPrinter.TextPrinterScree
+import com.example.jetpack_multiplenavigation.timerObservable.TimerObservableScreen
 import com.example.jetpack_multiplenavigation.uploadFileRetrofit.screens.FileUploadScreen
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -1256,6 +1258,23 @@ fun NavGraph(
                     }
                 ) {
                     CircleAnimationScreen(navController = navController)
+                }
+                composable<Routes.TimerObservable>(
+                    enterTransition = {
+                        return@composable fadeIn(tween(700))
+                    }, popEnterTransition = {
+                        return@composable slideIntoContainer(
+                            AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                        )
+                    }, exitTransition = {
+                        return@composable fadeOut(tween(700))
+                    }, popExitTransition = {
+                        return@composable slideOutOfContainer(
+                            AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                        )
+                    }
+                ) {
+                    TimerObservableScreen(navController = navController)
                 }
             }
         }
