@@ -73,8 +73,8 @@ fun getFeatures() : List<Feature> {
         Feature(
             title = "Sleep meditation 2",
             R.drawable.ic_headphone,
-            BlueViolet1,
             BlueViolet2,
+            BlueViolet1,
             BlueViolet3
         ),
         Feature(
@@ -115,30 +115,30 @@ fun getFeatures() : List<Feature> {
         Feature(
             title = "Night Island 5",
             R.drawable.ic_headphone,
-            Beige1,
-            Beige2,
-            Beige3
+            LightGreen1,
+            LightGreen2,
+            LightGreen3
         ),
         Feature(
             title = "Calming Sounds 5",
             R.drawable.ic_videocam,
-            OrangeYellow1,
-            OrangeYellow2,
-            OrangeYellow3
-        ),
-        Feature(
-            title = "Sleep Meditation 6",
-            R.drawable.ic_headphone,
             mediumColor = BlueViolet1,
             lightColor = BlueViolet2,
             darkColor = BlueViolet3
         ),
         Feature(
+            title = "Sleep Meditation 6",
+            R.drawable.ic_headphone,
+            Beige1,
+            Beige2,
+            Beige3
+        ),
+        Feature(
             title = "Tips for sleeping 6",
             R.drawable.ic_videocam,
-            LightGreen1,
-            LightGreen2,
-            LightGreen3
+            OrangeYellow1,
+            OrangeYellow2,
+            OrangeYellow3,
         ),
     )
 }
@@ -212,6 +212,7 @@ fun FeatureSection(
                         1 -> navController.navigate(Routes.Editor)
                         2 -> navController.navigate(Routes.Notes)
                         3 -> navController.navigate(Routes.CircleAnimation)
+                        4 -> navController.navigate(Routes.MatrixEffect)
                         6 -> navController.navigate(Routes.Products)
                         7 -> navController.navigate(Routes.PersonsListFull(
                             supportingText = "Person Item"

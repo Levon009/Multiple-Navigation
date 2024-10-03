@@ -60,6 +60,7 @@ import com.example.jetpack_multiplenavigation.listCarsFull.screens.CarsListScree
 import com.example.jetpack_multiplenavigation.listSwipeDropMenu.LanguagesScreen
 import com.example.jetpack_multiplenavigation.loading.LoadingScreen
 import com.example.jetpack_multiplenavigation.magnifierSection.MagnifierSection
+import com.example.jetpack_multiplenavigation.matrixEffect.MatrixEffectScreen
 import com.example.jetpack_multiplenavigation.meditation.MeditationScreen
 import com.example.jetpack_multiplenavigation.music.MusicHandler
 import com.example.jetpack_multiplenavigation.notes.presentation.add_edit_note.AddEditNoteScreen
@@ -1275,6 +1276,23 @@ fun NavGraph(
                     }
                 ) {
                     TimerObservableScreen(navController = navController)
+                }
+                composable<Routes.MatrixEffect>(
+                    enterTransition = {
+                        return@composable fadeIn(tween(700))
+                    }, popEnterTransition = {
+                        return@composable slideIntoContainer(
+                            AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                        )
+                    }, exitTransition = {
+                        return@composable fadeOut(tween(700))
+                    }, popExitTransition = {
+                        return@composable slideOutOfContainer(
+                            AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                        )
+                    }
+                ) {
+                    MatrixEffectScreen()
                 }
             }
         }

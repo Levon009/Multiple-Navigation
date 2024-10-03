@@ -67,8 +67,8 @@ class CircleAnimation : View {
         paint.style = Paint.Style.FILL
         canvas.drawCircle(newBallX, newBallY, 15.toFloat(), paint)
 
-        angle.value -= 7
-        if (angle.value == 0) angle.value = 360
+        angle.intValue -= 7
+        if (angle.intValue == 0) angle.intValue = 360
         invalidate()
     }
 
