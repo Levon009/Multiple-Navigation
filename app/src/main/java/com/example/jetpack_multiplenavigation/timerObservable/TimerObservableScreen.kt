@@ -1,6 +1,5 @@
 package com.example.jetpack_multiplenavigation.timerObservable
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,7 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import com.example.jetpack_multiplenavigation.ui.theme.DeepBlue
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableEmitter
@@ -31,7 +29,7 @@ import java.util.Timer
 import kotlin.concurrent.timerTask
 
 @Composable
-fun TimerObservableScreen(navController: NavHostController) {
+fun TimerObservableScreen() {
     val time = remember {
         mutableStateOf("")
     }
@@ -40,7 +38,6 @@ fun TimerObservableScreen(navController: NavHostController) {
     }
     LaunchedEffect(key1 = true, key2 = observeDate(time, disposable)) {
         time.value = observeDate(time, disposable)
-        Log.e("LLL", "$time")
     }
     Scaffold(
         modifier = Modifier
