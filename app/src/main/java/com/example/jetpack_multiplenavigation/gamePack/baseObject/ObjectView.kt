@@ -1,4 +1,4 @@
-package com.example.airfighers_jetpack.gamePack.baseObject
+package com.example.jetpack_multiplenavigation.gamePack.baseObject
 
 import android.graphics.Rect
 

@@ -1,17 +1,22 @@
-package com.example.airfighers_jetpack.gamePack.views.coin
+package com.example.jetpack_multiplenavigation.gamePack.views.coin
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import com.example.airfighers_jetpack.gamePack.baseObject.ObjectView
-import com.example.airfighers_jetpack.gamePack.framesAnimation.FramesAnimation
-import com.example.airfighers_jetpack.gamePack.panel.GamePanel
+import com.example.jetpack_multiplenavigation.gamePack.baseObject.ObjectView
+import com.example.jetpack_multiplenavigation.gamePack.framesAnimation.FramesAnimation
+import com.example.jetpack_multiplenavigation.gamePack.panel.GamePanel
 
-class Coin(bitmap: Bitmap, mX: Int, mY: Int, mWidth: Int, mHeight: Int, framesCount: Int) : ObjectView() {
+class Coin(
+    bitmap: Bitmap,
+    mX: Int,
+    mY: Int,
+    mWidth: Int,
+    mHeight: Int,
+    framesCount: Int
+) : ObjectView() {
     private val framesAnimation = FramesAnimation()
-    private var bitmap: Bitmap
 
     init {
-        this.bitmap = bitmap
         this.mX = mX
         this.mY = mY
         this.mWidth = mWidth
@@ -29,13 +34,13 @@ class Coin(bitmap: Bitmap, mX: Int, mY: Int, mWidth: Int, mHeight: Int, framesCo
         framesAnimation.setDelay(100)
     }
 
-    open fun update() {
+    fun update() {
         mY += dy
         mX += dx
         framesAnimation.update()
     }
 
-    open fun draw(canvas: Canvas) {
+    fun draw(canvas: Canvas) {
         canvas.drawBitmap(framesAnimation.getFrame(), mX.toFloat(), mY.toFloat(), null)
     }
 }

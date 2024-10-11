@@ -1,34 +1,33 @@
-package com.example.airfighers_jetpack.gamePack.views.bomb
+package com.example.jetpack_multiplenavigation.gamePack.views.bomb
 
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Rect
-import com.example.airfighers_jetpack.gamePack.baseObject.ObjectView
-import com.example.airfighers_jetpack.gamePack.panel.GamePanel
-import com.example.airfighers_jetpack.gamePack.views.airObject.AirObject
+import com.example.jetpack_multiplenavigation.gamePack.baseObject.ObjectView
+import com.example.jetpack_multiplenavigation.gamePack.panel.GamePanel
+import com.example.jetpack_multiplenavigation.gamePack.views.airObject.AirObject
 import com.example.jetpack_multiplenavigation.R
 import java.util.Random
 
-class BombRelease(context: Context, airObject: AirObject) {
+class BombRelease(
+    private val context: Context,
+    private val airObject: AirObject
+) {
     private val random = Random()
-    private var context: Context
-    private var airObject: AirObject
     private var bombs: MutableList<Bomb>? = null
     private var startTime: Long = 0
 
     init {
-        this.context = context
-        this.airObject = airObject
         bombs = arrayListOf()
         startTime = System.nanoTime()
     }
 
-    open fun getBombs() : MutableList<Bomb> = this.bombs!!
+    fun getBombs() : MutableList<Bomb> = this.bombs!!
 
     private fun collision(a: ObjectView, b: ObjectView) : Boolean = Rect.intersects(a.getRectangle(), b.getRectangle())
 
-    open fun update() {
+    fun update() {
         val elapsed = (System.nanoTime() - startTime) / 1000000
         if (elapsed > (2000 - airObject.getScore() / 4)) {
             bombs?.add(
@@ -56,11 +55,11 @@ class BombRelease(context: Context, airObject: AirObject) {
         }
     }
 
-    open fun draw(canvas: Canvas) {
+    fun draw(canvas: Canvas) {
         for (b in bombs!!) b.draw(canvas)
     }
 
-    open fun clear() {
+    fun clear() {
         bombs?.clear()
     }
 }

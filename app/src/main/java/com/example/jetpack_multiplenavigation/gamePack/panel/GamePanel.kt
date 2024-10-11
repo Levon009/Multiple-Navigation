@@ -1,4 +1,4 @@
-package com.example.airfighers_jetpack.gamePack.panel
+package com.example.jetpack_multiplenavigation.gamePack.panel
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,15 +11,15 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
-import com.example.airfighers_jetpack.gamePack.mainThread.ThreadManager
-import com.example.airfighers_jetpack.gamePack.views.airObject.AirObject
-import com.example.airfighers_jetpack.gamePack.views.background.BackgroundRelease
-import com.example.airfighers_jetpack.gamePack.views.bomb.BombRelease
+import com.example.jetpack_multiplenavigation.gamePack.mainThread.ThreadManager
+import com.example.jetpack_multiplenavigation.gamePack.views.airObject.AirObject
+import com.example.jetpack_multiplenavigation.gamePack.views.background.BackgroundRelease
+import com.example.jetpack_multiplenavigation.gamePack.views.bomb.BombRelease
 import com.example.airfighers_jetpack.gamePack.views.coin.CoinRelease
-import com.example.airfighers_jetpack.gamePack.views.explosion.ExplosionRelease
-import com.example.airfighers_jetpack.gamePack.views.missile.MissileRelease
-import com.example.airfighers_jetpack.gamePack.views.missile.fireMissile.FireMissileRelease
-import com.example.airfighers_jetpack.gamePack.views.smoke.SmokeRelease
+import com.example.jetpack_multiplenavigation.gamePack.views.explosion.ExplosionRelease
+import com.example.jetpack_multiplenavigation.gamePack.views.missile.MissileRelease
+import com.example.jetpack_multiplenavigation.gamePack.views.missile.fireMissile.FireMissileRelease
+import com.example.jetpack_multiplenavigation.gamePack.views.smoke.SmokeRelease
 import com.example.jetpack_multiplenavigation.R
 
 class GamePanel : SurfaceView, SurfaceHolder.Callback {
@@ -51,8 +51,8 @@ class GamePanel : SurfaceView, SurfaceHolder.Callback {
 
     override fun surfaceCreated(p0: SurfaceHolder) {
         airObject = AirObject(BitmapFactory.decodeResource(resources, R.drawable.helicopter1), 65, 35, 3)
-        backgroundRelease = BackgroundRelease(context, airObject!!)
-        smokeRelease = SmokeRelease(context, airObject!!)
+        backgroundRelease = BackgroundRelease(context)
+        smokeRelease = SmokeRelease(airObject!!)
         missileRelease = MissileRelease(context, airObject!!)
         coinRelease = CoinRelease(context, airObject!!)
         bombRelease = BombRelease(context, airObject!!)
@@ -90,7 +90,7 @@ class GamePanel : SurfaceView, SurfaceHolder.Callback {
         return super.onTouchEvent(event)
     }
 
-    open fun update() {
+    fun update() {
         if (airObject!!.isFlying())
             gameUpdate()
         else

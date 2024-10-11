@@ -9,7 +9,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.example.airfighers_jetpack.gamePack.panel.GamePanel
+import com.example.jetpack_multiplenavigation.gamePack.panel.GamePanel
 import com.example.jetpack_multiplenavigation.ui.theme.JetPack_MultipleNavigationTheme
 
 class GameActivity : ComponentActivity() {

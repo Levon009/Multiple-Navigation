@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.jetpack_multiplenavigation.ui.theme.DeepBlue
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableEmitter
@@ -29,7 +30,7 @@ import java.util.Timer
 import kotlin.concurrent.timerTask
 
 @Composable
-fun TimerObservableScreen() {
+fun TimerObservableScreen(navController: NavHostController) {
     val time = remember {
         mutableStateOf("")
     }

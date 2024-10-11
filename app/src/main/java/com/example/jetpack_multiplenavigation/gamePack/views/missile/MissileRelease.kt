@@ -1,34 +1,33 @@
-package com.example.airfighers_jetpack.gamePack.views.missile
+package com.example.jetpack_multiplenavigation.gamePack.views.missile
 
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Rect
-import com.example.airfighers_jetpack.gamePack.baseObject.ObjectView
-import com.example.airfighers_jetpack.gamePack.panel.GamePanel
-import com.example.airfighers_jetpack.gamePack.views.airObject.AirObject
+import com.example.jetpack_multiplenavigation.gamePack.baseObject.ObjectView
+import com.example.jetpack_multiplenavigation.gamePack.panel.GamePanel
+import com.example.jetpack_multiplenavigation.gamePack.views.airObject.AirObject
 import com.example.jetpack_multiplenavigation.R
 import java.util.Random
 
-class MissileRelease(context: Context, airObject: AirObject) {
+class MissileRelease(
+    private val context: Context,
+    private val airObject: AirObject
+) {
     private val random = Random()
-    private var context: Context
-    private var airObject: AirObject
     private var missiles: MutableList<Missile>? = null
     private var missileStartTime: Long = 0
 
     init {
-        this.context = context
-        this.airObject = airObject
         missiles = arrayListOf()
         missileStartTime = System.nanoTime()
     }
 
-    open fun getMissiles() : MutableList<Missile> = this.missiles!!
+    fun getMissiles() : MutableList<Missile> = this.missiles!!
 
     private fun collision(a: ObjectView, b: ObjectView) : Boolean = Rect.intersects(a.getRectangle(), b.getRectangle())
 
-    open fun update() {
+    fun update() {
         val elapsed = (System.nanoTime() - missileStartTime) / 1000000
         if (elapsed > (2000 - airObject.getScore() / 4)) {
             missiles?.add(
@@ -57,11 +56,11 @@ class MissileRelease(context: Context, airObject: AirObject) {
         }
     }
 
-    open fun draw(canvas: Canvas) {
+    fun draw(canvas: Canvas) {
         for (m in missiles!!) m.draw(canvas)
     }
 
-    open fun clear() {
+    fun clear() {
         missiles?.clear()
     }
 }

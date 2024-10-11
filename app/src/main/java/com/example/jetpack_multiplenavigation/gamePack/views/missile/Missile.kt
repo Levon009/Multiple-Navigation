@@ -1,22 +1,27 @@
-package com.example.airfighers_jetpack.gamePack.views.missile
+package com.example.jetpack_multiplenavigation.gamePack.views.missile
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import com.example.airfighers_jetpack.gamePack.baseObject.ObjectView
-import com.example.airfighers_jetpack.gamePack.framesAnimation.FramesAnimation
+import com.example.jetpack_multiplenavigation.gamePack.baseObject.ObjectView
+import com.example.jetpack_multiplenavigation.gamePack.framesAnimation.FramesAnimation
 import java.util.Random
 
 class Missile(
-    bitmap: Bitmap, mX: Int, mY: Int, mWidth: Int, mHeight: Int, score: Int, framesCount: Int
+    bitmap: Bitmap,
+    mX: Int,
+    mY: Int,
+    mWidth: Int,
+    mHeight: Int,
+    score: Int,
+    framesCount: Int
 ) : ObjectView() {
+
     private val framesAnimation = FramesAnimation()
     private val random = Random()
-    private var bitmap: Bitmap
     private var score: Int = 0
     private var speed: Int = 0
 
     init {
-        this.bitmap = bitmap
         this.mX = mX
         this.mY = mY
         this.mWidth = mWidth
@@ -35,12 +40,12 @@ class Missile(
         framesAnimation.setDelay(100 - speed.toLong())
     }
 
-    open fun update() {
+    fun update() {
         mX -= speed
         framesAnimation.update()
     }
 
-    open fun draw(canvas: Canvas) {
+    fun draw(canvas: Canvas) {
         canvas.drawBitmap(framesAnimation.getFrame(), mX.toFloat(), mY.toFloat(), null)
     }
 }

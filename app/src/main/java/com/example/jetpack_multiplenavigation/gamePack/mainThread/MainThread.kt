@@ -1,8 +1,8 @@
-package com.example.airfighers_jetpack.gamePack.mainThread
+package com.example.jetpack_multiplenavigation.gamePack.mainThread
 
 import android.graphics.Canvas
 import android.view.SurfaceHolder
-import com.example.airfighers_jetpack.gamePack.panel.GamePanel
+import com.example.jetpack_multiplenavigation.gamePack.panel.GamePanel
 import kotlinx.coroutines.CompletableJob
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -13,24 +13,23 @@ import kotlinx.coroutines.internal.synchronized
 import kotlinx.coroutines.launch
 import java.util.concurrent.CancellationException
 
-class MainThread(surfaceHolder: SurfaceHolder, gamePanel: GamePanel) {
+class MainThread(
+    private val surfaceHolder: SurfaceHolder,
+    private val gamePanel: GamePanel
+) {
     companion object {
         private const val FPS = 30
         private var canvas: Canvas? = null
     }
 
-    private var surfaceHolder: SurfaceHolder
-    private var gamePanel: GamePanel
     private var job: CompletableJob? = null
     private var running = false
 
     init {
-        this.surfaceHolder = surfaceHolder
-        this.gamePanel = gamePanel
         initializeJob()
     }
 
-    open fun setRunning(running: Boolean) {
+    fun setRunning(running: Boolean) {
         this.running = running
     }
 
@@ -40,26 +39,26 @@ class MainThread(surfaceHolder: SurfaceHolder, gamePanel: GamePanel) {
             it?.message.let {
                 var msg = it
                 if (msg.isNullOrBlank()) {
-                    msg = "Unknown error. Result - $msg"
+                    msg = "Unknown error. Result: - $msg"
                 }
             }
         }
     }
 
-    open fun cancelJob() {
+    fun cancelJob() {
         if (job!!.isActive || job!!.isCompleted) {
             job?.cancel(CancellationException("Cancel job."))
         }
     }
 
     @OptIn(InternalCoroutinesApi::class)
-    open fun run() {
+    fun run() {
         CoroutineScope(Dispatchers.IO + job!!).launch {
             val targetTime: Long = (1000 / FPS).toLong()
-            var startTime: Long = 0
-            var waitTime: Long = 0
-            var timeMillis: Long = 0
-            var framesCount: Int = 0
+            var startTime: Long
+            var waitTime: Long
+            var timeMillis: Long
+            var framesCount = 0
 
             while (running) {
                 startTime = System.nanoTime()

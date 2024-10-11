@@ -1,9 +1,9 @@
-package com.example.airfighers_jetpack.gamePack.views.smoke
+package com.example.jetpack_multiplenavigation.gamePack.views.smoke
 
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import com.example.airfighers_jetpack.gamePack.baseObject.ObjectView
+import com.example.jetpack_multiplenavigation.gamePack.baseObject.ObjectView
 
 class Smoke(mX: Int, mY: Int) : ObjectView() {
     private var r = 0
@@ -14,11 +14,11 @@ class Smoke(mX: Int, mY: Int) : ObjectView() {
         r = 5
     }
 
-    open fun update() {
+    fun update() {
         mX -= 10
     }
 
-    open fun draw(canvas: Canvas) {
+    fun draw(canvas: Canvas) {
         val paint = Paint()
         paint.color = Color.GRAY
         paint.style = Paint.Style.FILL

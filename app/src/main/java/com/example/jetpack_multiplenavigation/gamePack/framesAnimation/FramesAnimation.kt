@@ -1,4 +1,4 @@
-package com.example.airfighers_jetpack.gamePack.framesAnimation
+package com.example.jetpack_multiplenavigation.gamePack.framesAnimation
 
 import android.graphics.Bitmap
 
@@ -9,27 +9,27 @@ class FramesAnimation {
     private var currentFrame: Int = 0
     private var playedOnce = false
 
-    open fun setFrames(frames: Array<Bitmap?>?) {
+    fun setFrames(frames: Array<Bitmap?>?) {
         this.frames = frames
         currentFrame = 0
         startTime = System.nanoTime()
     }
 
-    open fun getFrame() : Bitmap = frames!![currentFrame]!!
+    fun getFrame() : Bitmap = frames!![currentFrame]!!
 
-    open fun setCurrentFrame(currentFrame: Int) {
+    fun setCurrentFrame(currentFrame: Int) {
         this.currentFrame = currentFrame
     }
 
-    open fun getCurrentFrame() : Int = this.currentFrame
+    fun getCurrentFrame() : Int = this.currentFrame
 
-    open fun setDelay(delay: Long) {
+    fun setDelay(delay: Long) {
         this.delay = delay
     }
 
-    open fun isPlayedOnce() : Boolean = this.playedOnce
+    fun isPlayedOnce() : Boolean = this.playedOnce
 
-    open fun update() {
+    fun update() {
         val elapsed: Long = (System.nanoTime() - startTime) / 1000000
         if (elapsed > delay) {
             currentFrame++

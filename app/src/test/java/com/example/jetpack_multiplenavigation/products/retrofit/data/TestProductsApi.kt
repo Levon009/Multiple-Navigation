@@ -1,6 +1,6 @@
 package com.example.jetpack_multiplenavigation.products.retrofit.data
 
-import com.example.jetpack_multiplenavigation.products.retrofit.data.model.Post
+import com.example.jetpack_multiplenavigation.products.domain.data.model.Post
 import retrofit2.http.GET
 
 interface TestProductsApi {

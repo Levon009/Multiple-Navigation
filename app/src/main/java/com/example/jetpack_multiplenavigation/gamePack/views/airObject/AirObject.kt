@@ -1,14 +1,18 @@
-package com.example.airfighers_jetpack.gamePack.views.airObject
+package com.example.jetpack_multiplenavigation.gamePack.views.airObject
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import com.example.airfighers_jetpack.gamePack.baseObject.ObjectView
-import com.example.airfighers_jetpack.gamePack.framesAnimation.FramesAnimation
-import com.example.airfighers_jetpack.gamePack.panel.GamePanel
+import com.example.jetpack_multiplenavigation.gamePack.baseObject.ObjectView
+import com.example.jetpack_multiplenavigation.gamePack.framesAnimation.FramesAnimation
+import com.example.jetpack_multiplenavigation.gamePack.panel.GamePanel
 
-class AirObject(bitmap: Bitmap, mWidth: Int, mHeight: Int, framesCount: Int) : ObjectView() {
+class AirObject(
+    bitmap: Bitmap,
+    mWidth: Int,
+    mHeight: Int,
+    framesCount: Int
+) : ObjectView() {
     private val framesAnimation = FramesAnimation()
-    private var bitmap: Bitmap
     private var startTime: Long = 0
     private var score: Int = 0
     private var coins: Int = 0
@@ -16,7 +20,6 @@ class AirObject(bitmap: Bitmap, mWidth: Int, mHeight: Int, framesCount: Int) : O
     private var flying = false
 
     init {
-        this.bitmap = bitmap
         this.mX = 100
         this.mY = GamePanel.HEIGHT / 2
         this.dy = 0
@@ -36,19 +39,19 @@ class AirObject(bitmap: Bitmap, mWidth: Int, mHeight: Int, framesCount: Int) : O
         framesAnimation.setDelay(100)
     }
 
-    open fun addCoins() {
+    fun addCoins() {
         coins++
     }
 
-    open fun getCoins() : Int {
+    fun getCoins() : Int {
         return this.coins
     }
 
-    open fun resetCoins() {
+    fun resetCoins() {
         this.coins = 0
     }
 
-    open fun setUp(up: Boolean) {
+    fun setUp(up: Boolean) {
         this.up = up
     }
 
@@ -56,19 +59,19 @@ class AirObject(bitmap: Bitmap, mWidth: Int, mHeight: Int, framesCount: Int) : O
         this.flying = flying
     }
 
-    open fun isFlying() : Boolean = this.flying
+    fun isFlying() : Boolean = this.flying
 
-    open fun resetScore() {
+    fun resetScore() {
         this.score = 0
     }
 
-    open fun getScore() : Int = this.score
+    fun getScore() : Int = this.score
 
-    open fun resetDY() {
+    fun resetDY() {
         this.dy = 0
     }
 
-    open fun update() {
+    fun update() {
         val elapsed = (System.nanoTime() - startTime) / 1000000
         if (elapsed > 100) {
             score++
@@ -84,7 +87,7 @@ class AirObject(bitmap: Bitmap, mWidth: Int, mHeight: Int, framesCount: Int) : O
         mY += dy
     }
 
-    open fun draw(canvas: Canvas) {
+    fun draw(canvas: Canvas) {
         canvas.drawBitmap(framesAnimation.getFrame(), mX.toFloat(), mY.toFloat(), null)
     }
 }

@@ -2,7 +2,7 @@ package com.example.airfighers_jetpack.gamePack.views.explosion
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import com.example.airfighers_jetpack.gamePack.framesAnimation.FramesAnimation
+import com.example.jetpack_multiplenavigation.gamePack.framesAnimation.FramesAnimation
 
 class Explosion(bitmap: Bitmap, mX: Int, mY: Int, mWidth: Int, mHeight: Int, framesCount: Int) {
     private val framesAnimation = FramesAnimation()

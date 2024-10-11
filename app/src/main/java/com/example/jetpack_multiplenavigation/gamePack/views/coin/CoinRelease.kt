@@ -4,10 +4,11 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Rect
-import com.example.airfighers_jetpack.gamePack.baseObject.ObjectView
-import com.example.airfighers_jetpack.gamePack.panel.GamePanel
-import com.example.airfighers_jetpack.gamePack.views.airObject.AirObject
+import com.example.jetpack_multiplenavigation.gamePack.baseObject.ObjectView
+import com.example.jetpack_multiplenavigation.gamePack.panel.GamePanel
+import com.example.jetpack_multiplenavigation.gamePack.views.airObject.AirObject
 import com.example.jetpack_multiplenavigation.R
+import com.example.jetpack_multiplenavigation.gamePack.views.coin.Coin
 import java.util.Random
 
 class CoinRelease(context: Context, airObject: AirObject) {

@@ -73,7 +73,7 @@ import com.example.jetpack_multiplenavigation.pet.home.PetsHomeScreen
 import com.example.jetpack_multiplenavigation.photoCompressionWork.PhotoCompressionWorkScreen
 import com.example.jetpack_multiplenavigation.pickSaveImage.PickSaveImage
 import com.example.jetpack_multiplenavigation.produceState.ProduceStateScreen
-import com.example.jetpack_multiplenavigation.products.retrofit.productsUI.UpdateProductScreen
+import com.example.jetpack_multiplenavigation.products.presentation.productsUI.UpdateProductScreen
 import com.example.jetpack_multiplenavigation.radioBCheckBSwitch.CheckBRadioBSwitchScreen
 import com.example.jetpack_multiplenavigation.school.screens.SchoolScreen
 import com.example.jetpack_multiplenavigation.search.SearchScreen
@@ -88,7 +88,7 @@ import com.example.jetpack_multiplenavigation.students.screensUI.UpdateStudent
 import com.example.jetpack_multiplenavigation.students.studentNavArgs.StudentsNavArgs
 import com.example.jetpack_multiplenavigation.textFields.TextFieldsScreen
 import com.example.jetpack_multiplenavigation.timer.Timer
-import com.example.jetpack_multiplenavigation.products.screens.ProductsScreen
+import com.example.jetpack_multiplenavigation.products.presentation.screens.ProductsScreen
 import com.example.jetpack_multiplenavigation.sharedPreferencesSP.SharedPreferencesScreen
 import com.example.jetpack_multiplenavigation.swipeWithActions.presentation.screens.CustomSwipeScreen
 import com.example.jetpack_multiplenavigation.textPrinter.TextPrinterScree
