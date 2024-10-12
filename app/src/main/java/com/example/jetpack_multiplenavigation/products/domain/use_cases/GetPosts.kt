@@ -15,7 +15,7 @@ class GetPosts(
     operator fun invoke(
         context: Context,
         posts: MutableState<List<Post>>
-    ) : MutableState<List<Post>>{
+    ) : MutableState<List<Post>> {
         val params: MutableMap<String?, String?> = HashMap()
         params["id"] = "1"
         params["_sort"] = "title"
