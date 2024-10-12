@@ -1,8 +1,8 @@
 package com.example.jetpack_multiplenavigation.school.data
 
-import com.example.jetpack_multiplenavigation.school.data.modul.Student3
-import com.example.jetpack_multiplenavigation.school.data.modul.StudentSubjectCrossRef
-import com.example.jetpack_multiplenavigation.school.data.modul.Subject3
+import com.example.jetpack_multiplenavigation.school.domain.modul.Student3
+import com.example.jetpack_multiplenavigation.school.domain.modul.StudentSubjectCrossRef
+import com.example.jetpack_multiplenavigation.school.domain.modul.Subject3
 
 val students3 = listOf(
     Student3(

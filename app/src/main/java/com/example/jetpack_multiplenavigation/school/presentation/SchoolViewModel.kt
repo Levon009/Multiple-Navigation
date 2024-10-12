@@ -2,9 +2,9 @@ package com.example.jetpack_multiplenavigation.school.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.jetpack_multiplenavigation.school.data.modul.StudentsOfSubject
-import com.example.jetpack_multiplenavigation.school.data.modul.SubjectsOfStudent
-import com.example.jetpack_multiplenavigation.school.repository.SchoolRepository
+import com.example.jetpack_multiplenavigation.school.domain.modul.StudentsOfSubject
+import com.example.jetpack_multiplenavigation.school.domain.modul.SubjectsOfStudent
+import com.example.jetpack_multiplenavigation.school.domain.repository.SchoolRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

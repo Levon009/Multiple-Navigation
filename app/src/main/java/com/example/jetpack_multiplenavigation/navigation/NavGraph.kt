@@ -8,7 +8,6 @@ import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -21,7 +20,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.example.jetpack_multiplenavigation.personsListFull.PersonsListScreen
-import com.example.draf.students.data.model.Student
+import com.example.jetpack_multiplenavigation.students.domain.model.Student
 import com.example.jetpack_multiplenavigation.authentication.presentation.screens.AuthorizationScreen
 import com.example.jetpack_multiplenavigation.authentication.presentation.screens.LoginScreen
 import com.example.jetpack_multiplenavigation.authentication.presentation.screens.RegisterScreen
@@ -33,7 +32,7 @@ import com.example.jetpack_multiplenavigation.cipherManager.screens.EncryptDecry
 import com.example.jetpack_multiplenavigation.circleAnimation.CircleAnimationScreen
 import com.example.jetpack_multiplenavigation.coil.CoilScreens
 import com.example.jetpack_multiplenavigation.constraintsLayout.ConstraintsLayoutScreen
-import com.example.jetpack_multiplenavigation.contactsRoom1.contactsScreen.ContactsScreen
+import com.example.jetpack_multiplenavigation.contactsRoom1.presentation.contactsScreen.ContactsScreen
 import com.example.jetpack_multiplenavigation.contentProvider.contacts.screens.PhoneContactsScreen
 import com.example.jetpack_multiplenavigation.contentProvider.media.screens.MediaContentProviderScreen
 import com.example.jetpack_multiplenavigation.customNavArgs.CustomNavArgs
@@ -49,7 +48,7 @@ import com.example.jetpack_multiplenavigation.dragDropListItem.DragDropListScree
 import com.example.jetpack_multiplenavigation.drawerNavigation.DrawerNavigation
 import com.example.jetpack_multiplenavigation.editor.EditorScreen
 import com.example.jetpack_multiplenavigation.emailPreferences.EmailScreen
-import com.example.jetpack_multiplenavigation.employee_dependencies.screens.EmployeesScreen
+import com.example.jetpack_multiplenavigation.employee_dependencies.presentation.screens.EmployeesScreen
 import com.example.jetpack_multiplenavigation.expandableBox.ExpandableBox
 import com.example.jetpack_multiplenavigation.expendableList.ExpendedLanguagesScreen
 import com.example.jetpack_multiplenavigation.expendableMenu.PersonsScreen
@@ -75,17 +74,17 @@ import com.example.jetpack_multiplenavigation.pickSaveImage.PickSaveImage
 import com.example.jetpack_multiplenavigation.produceState.ProduceStateScreen
 import com.example.jetpack_multiplenavigation.products.presentation.productsUI.UpdateProductScreen
 import com.example.jetpack_multiplenavigation.radioBCheckBSwitch.CheckBRadioBSwitchScreen
-import com.example.jetpack_multiplenavigation.school.screens.SchoolScreen
+import com.example.jetpack_multiplenavigation.school.presentation.screens.SchoolScreen
 import com.example.jetpack_multiplenavigation.search.SearchScreen
 import com.example.jetpack_multiplenavigation.search2.SearchScreen2
 import com.example.jetpack_multiplenavigation.simpleAnimation.SimpleAnimation
 import com.example.jetpack_multiplenavigation.snackBarSB.screens.SnackBarScreen
 import com.example.jetpack_multiplenavigation.snapshotFlow.SnapshotFlowScreen
 import com.example.jetpack_multiplenavigation.stats.Stats
-import com.example.jetpack_multiplenavigation.students.screensUI.AddStudent
-import com.example.jetpack_multiplenavigation.students.screensUI.StudentsList
-import com.example.jetpack_multiplenavigation.students.screensUI.UpdateStudent
-import com.example.jetpack_multiplenavigation.students.studentNavArgs.StudentsNavArgs
+import com.example.jetpack_multiplenavigation.students.presentation.screensUI.AddStudent
+import com.example.jetpack_multiplenavigation.students.presentation.screensUI.StudentsList
+import com.example.jetpack_multiplenavigation.students.presentation.screensUI.UpdateStudent
+import com.example.jetpack_multiplenavigation.students.presentation.components.studentNavArgs.StudentsNavArgs
 import com.example.jetpack_multiplenavigation.textFields.TextFieldsScreen
 import com.example.jetpack_multiplenavigation.timer.Timer
 import com.example.jetpack_multiplenavigation.products.presentation.screens.ProductsScreen

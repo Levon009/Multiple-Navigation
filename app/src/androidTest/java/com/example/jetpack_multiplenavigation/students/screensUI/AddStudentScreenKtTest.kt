@@ -1,7 +1,6 @@
 package com.example.jetpack_multiplenavigation.students.screensUI
 
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
@@ -10,14 +9,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.draf.students.screensUI.AddStudentScreen
+import com.example.jetpack_multiplenavigation.students.presentation.screensUI.AddStudentScreen
 import com.example.jetpack_multiplenavigation.MainActivity
 import com.example.jetpack_multiplenavigation.navigation.Routes
 import com.example.jetpack_multiplenavigation.students.core.util.TestTags
 import com.example.jetpack_multiplenavigation.students.di.KoinTestRule
 import com.example.jetpack_multiplenavigation.students.di.instrumentedTestModule
 import com.example.jetpack_multiplenavigation.students.di.studentsDatabaseModule
-import com.example.jetpack_multiplenavigation.students.studentsViewModel.StudentsViewModel
+import com.example.jetpack_multiplenavigation.students.presentation.StudentsViewModel
 import com.example.jetpack_multiplenavigation.ui.theme.JetPack_MultipleNavigationTheme
 import org.junit.Before
 import org.junit.Rule

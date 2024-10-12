@@ -1,9 +1,9 @@
 package com.example.jetpack_multiplenavigation.dependencies.di
 
-import com.example.jetpack_koin2.Employee.employeeFactory.EmployeeFactory
-import com.example.jetpack_koin2.Employee.employeeRepository.EmployeeRepository
-import com.example.jetpack_koin2.Employee.employeeRepository.EmployeeRepositoryImpl
-import com.example.jetpack_koin2.Employee.employeeViewModel.EmployeeViewModel
+import com.example.jetpack_multiplenavigation.employee_dependencies.data.employeeFactory.EmployeeFactory
+import com.example.jetpack_multiplenavigation.employee_dependencies.domain.repository.EmployeeRepository
+import com.example.jetpack_multiplenavigation.employee_dependencies.data.repository.EmployeeRepositoryImpl
+import com.example.jetpack_multiplenavigation.employee_dependencies.presentation.EmployeeViewModel
 import com.example.jetpack_multiplenavigation.dependencies.data.DbClient
 import com.example.jetpack_multiplenavigation.dependencies.koinViewModel.KoinViewModel
 import com.example.jetpack_multiplenavigation.dependencies.repository.KoinRepository

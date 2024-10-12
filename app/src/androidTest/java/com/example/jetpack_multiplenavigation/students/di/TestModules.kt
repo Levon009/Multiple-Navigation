@@ -1,7 +1,7 @@
 package com.example.jetpack_multiplenavigation.students.di
 
-import com.example.jetpack_multiplenavigation.students.studentsDatabase.StudentsDatabase
-import com.example.jetpack_multiplenavigation.students.studentsViewModel.StudentsViewModel
+import com.example.jetpack_multiplenavigation.students.data.studentsDatabase.StudentsDatabase
+import com.example.jetpack_multiplenavigation.students.presentation.StudentsViewModel
 import org.koin.compose.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 

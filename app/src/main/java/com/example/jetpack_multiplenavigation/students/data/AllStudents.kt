@@ -1,7 +1,7 @@
 package com.example.draf.students.data
 
 import androidx.compose.runtime.toMutableStateList
-import com.example.draf.students.data.model.Student
+import com.example.jetpack_multiplenavigation.students.domain.model.Student
 
 val allStudents = listOf(
     Student(

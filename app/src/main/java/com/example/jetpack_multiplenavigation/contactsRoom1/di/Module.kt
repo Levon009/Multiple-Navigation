@@ -1,9 +1,9 @@
 package com.example.jetpack_multiplenavigation.contactsRoom1.di
 
 import androidx.room.Room
-import com.example.jetpack_multiplenavigation.contactsRoom1.contactsDatabase.ContactsDao
-import com.example.jetpack_multiplenavigation.contactsRoom1.contactsDatabase.ContactsDatabase
-import com.example.jetpack_multiplenavigation.contactsRoom1.contactsPresentation.ContactsViewModel
+import com.example.jetpack_multiplenavigation.contactsRoom1.data.contactsDatabase.ContactsDao
+import com.example.jetpack_multiplenavigation.contactsRoom1.data.contactsDatabase.ContactsDatabase
+import com.example.jetpack_multiplenavigation.contactsRoom1.presentation.ContactsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 

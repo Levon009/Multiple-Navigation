@@ -1,10 +1,9 @@
 package com.example.jetpack_multiplenavigation.navigation
 
-import com.example.draf.students.data.model.Student
+import com.example.jetpack_multiplenavigation.students.domain.model.Student
 import com.example.jetpack_multiplenavigation.customNavArgs.data.model.BreedSize
 import com.example.jetpack_multiplenavigation.customNavArgs.data.model.Dog
 import kotlinx.serialization.Serializable
-import okhttp3.Route
 
 @Serializable
 sealed class Routes {

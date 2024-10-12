@@ -1,6 +1,6 @@
 package com.example.jetpack_multiplenavigation.students.data
 
-import com.example.draf.students.data.model.Student
+import com.example.jetpack_multiplenavigation.students.domain.model.Student
 
 data class StudentsState(
     val students: List<Student> = emptyList(),
