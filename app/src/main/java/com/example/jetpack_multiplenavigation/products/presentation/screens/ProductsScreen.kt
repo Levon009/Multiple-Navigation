@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -136,8 +137,7 @@ fun ProductsScreen(
                         contentPadding = PaddingValues(16.dp),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .fillMaxHeight(0.94f)
-
+                            .fillMaxHeight(0.96f)
                     ) {
                         items(state.items.size) { i ->
                             val product = state.items[i]
@@ -155,11 +155,10 @@ fun ProductsScreen(
                         }
                     }
                     Spacer(modifier = Modifier.height(3.dp))
-                    if (state.isLoading && state.items.size > 1) {
-                        LoadingContent(
-                            modifier = Modifier.fillMaxSize()
-                        )
-                    }
+                    LoadingContent(
+                        modifier = if (state.isLoading) Modifier.fillMaxSize()
+                        else Modifier.height(0.dp).width(0.dp)
+                    )
                 }
             }
         }
@@ -257,7 +256,8 @@ fun LoadingContent(modifier: Modifier = Modifier) {
         CircularProgressIndicator(
             modifier = Modifier
                 .align(Alignment.Center)
-                .size(30.dp),
+                .size(30.dp)
+                .background(Color.Transparent),
             color = Color.Magenta
         )
     }
