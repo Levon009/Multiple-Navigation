@@ -1,12 +1,18 @@
 package com.example.jetpack_multiplenavigation.pickSaveImage
 
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.net.Uri
+import android.os.Build
+import android.provider.MediaStore
 import android.widget.Toast
 import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -46,6 +52,8 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import com.example.jetpack_multiplenavigation.navigation.Routes
+import com.example.jetpack_multiplenavigation.pickSaveImage.data.BitmapHelper
+import com.example.jetpack_multiplenavigation.pickSaveImage.presentation.BitmapActivity
 import org.koin.compose.viewmodel.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -150,7 +158,7 @@ fun PickSaveImage(navController: NavHostController) {
                     }
                 }
 
-                item { 
+                item {
                     imageViewModel.uri?.let {
                         AsyncImage(
                             model = ImageRequest.Builder(context)
@@ -161,7 +169,14 @@ fun PickSaveImage(navController: NavHostController) {
                                 .build(),
                             contentDescription = null,
                             contentScale = ContentScale.Crop,
-                            modifier = Modifier.size(250.dp)
+                            modifier = Modifier
+                                .size(250.dp)
+                                .clickable {
+                                    BitmapHelper.getInstance().setBitmap(getBitmapFromUri(context, imageViewModel.uri!!))
+                                    Intent(context, BitmapActivity::class.java).apply {
+                                        context.startActivity(this)
+                                    }
+                                }
                         )
                     }
                     Spacer(modifier = Modifier.height(25.dp))
@@ -221,5 +236,16 @@ private fun saveImageToGallery(context: Context, uri: Uri) {
             input.copyTo(output)
             Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
         }
+    }
+}
+
+private fun getBitmapFromUri(
+    context: Context,
+    uri: Uri
+) : Bitmap {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        ImageDecoder.decodeBitmap(ImageDecoder.createSource(context.contentResolver, uri))
+    } else {
+        MediaStore.Images.Media.getBitmap(context.contentResolver, uri)
     }
 }
