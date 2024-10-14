@@ -57,6 +57,7 @@ import com.example.jetpack_multiplenavigation.instagram.InstagramScreen
 import com.example.jetpack_multiplenavigation.intents.IntentsScreen
 import com.example.jetpack_multiplenavigation.listCarsFull.screens.CarsListScreen
 import com.example.jetpack_multiplenavigation.listSwipeDropMenu.LanguagesScreen
+import com.example.jetpack_multiplenavigation.loadInitialData.LoadInitialDataScreen
 import com.example.jetpack_multiplenavigation.loading.LoadingScreen
 import com.example.jetpack_multiplenavigation.magnifierSection.MagnifierSection
 import com.example.jetpack_multiplenavigation.matrixEffect.MatrixEffectScreen
@@ -1292,6 +1293,23 @@ fun NavGraph(
                     }
                 ) {
                     MatrixEffectScreen()
+                }
+                composable<Routes.LoadInitialData>(
+                    enterTransition = {
+                        return@composable fadeIn(tween(700))
+                    }, popEnterTransition = {
+                        return@composable slideIntoContainer(
+                            AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                        )
+                    }, exitTransition = {
+                        return@composable fadeOut(tween(700))
+                    }, popExitTransition = {
+                        return@composable slideOutOfContainer(
+                            AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                        )
+                    }
+                ) {
+                    LoadInitialDataScreen(navController = navController)
                 }
             }
         }

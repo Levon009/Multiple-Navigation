@@ -4,6 +4,7 @@ import com.example.jetpack_multiplenavigation.students.domain.model.Student
 import com.example.jetpack_multiplenavigation.customNavArgs.data.model.BreedSize
 import com.example.jetpack_multiplenavigation.customNavArgs.data.model.Dog
 import kotlinx.serialization.Serializable
+import okhttp3.Route
 
 @Serializable
 sealed class Routes {
@@ -255,4 +256,7 @@ sealed class Routes {
 
     @Serializable
     data object MatrixEffect : Routes()
+
+    @Serializable
+    data object LoadInitialData : Routes()
 }

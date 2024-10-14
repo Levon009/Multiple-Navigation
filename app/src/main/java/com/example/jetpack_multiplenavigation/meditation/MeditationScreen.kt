@@ -109,6 +109,7 @@ fun MeditationScreen(
                         16 -> navController.navigate(Routes.BottomTaskBarSection)
                         17 -> navController.navigate(Routes.Constraints)
                         18 -> navController.navigate(Routes.TimerObservable)
+                        19 -> navController.navigate(Routes.LoadInitialData)
                     }
                 }
                 MeditationSection(color = LightRed)

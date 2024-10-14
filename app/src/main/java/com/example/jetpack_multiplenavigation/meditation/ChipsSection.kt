@@ -45,7 +45,8 @@ fun getChips() : List<String> {
         "Fragments",
         "Tasks",
         "Constraints",
-        "Observable"
+        "Observable",
+        "LoadInitialData"
     )
 }
 
