@@ -19,6 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import com.example.jetpack_multiplenavigation.fragments.presentation.FragmentsActivity
 import com.example.jetpack_multiplenavigation.navigation.Routes
+import com.example.jetpack_multiplenavigation.recyclerViewPayloads.presentation.RecyclerActivity
 import com.example.jetpack_multiplenavigation.ui.theme.DeepBlue
 import com.example.jetpack_multiplenavigation.ui.theme.LightRed
 import kotlinx.coroutines.delay
@@ -110,6 +111,11 @@ fun MeditationScreen(
                         17 -> navController.navigate(Routes.Constraints)
                         18 -> navController.navigate(Routes.TimerObservable)
                         19 -> navController.navigate(Routes.LoadInitialData)
+                        20 -> {
+                            Intent(context, RecyclerActivity::class.java).apply {
+                                context.startActivity(this)
+                            }
+                        }
                     }
                 }
                 MeditationSection(color = LightRed)

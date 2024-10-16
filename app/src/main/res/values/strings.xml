@@ -61,4 +61,7 @@
         molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
         bibendum, vel congue leo egestas.\n\n
     </string>
+    <string name="add">Add</string>
+    <string name="age">20</string>
+    <string name="name">Name</string>
 </resources>

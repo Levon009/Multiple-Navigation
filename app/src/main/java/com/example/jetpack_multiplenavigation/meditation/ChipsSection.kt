@@ -46,7 +46,8 @@ fun getChips() : List<String> {
         "Tasks",
         "Constraints",
         "Observable",
-        "LoadInitialData"
+        "LoadInitialData",
+        "RecyclerPayloads"
     )
 }
 
