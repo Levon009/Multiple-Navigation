@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
     private val airPlaneModeReceiver = AirPlaneModeReceiver()
 
     //
-    private val flowViewModel = viewModels<FlowViewModel>()
+    private val flowViewModel by viewModels<FlowViewModel>()
     private val imageViewModel by viewModels<ImageViewModel>()
     private val tag = "Kotlin_Flows"
 
@@ -133,11 +133,11 @@ class MainActivity : ComponentActivity() {
     }
 
     fun onBackPressClicked(isBackPressed: Boolean) {
-        object : OnBackPressedCallback(isBackPressed) {
+        onBackPressedDispatcher.addCallback(this@MainActivity, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 // Handle back press
             }
-        }
+        })
     }
 
     override fun onDestroy() {
