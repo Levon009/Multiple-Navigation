@@ -19,6 +19,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+import com.example.jetpack_multiplenavigation.webSockets.presentation.screens.WebSocketsScreen
 import com.example.jetpack_multiplenavigation.personsListFull.PersonsListScreen
 import com.example.jetpack_multiplenavigation.students.domain.model.Student
 import com.example.jetpack_multiplenavigation.authentication.presentation.screens.AuthorizationScreen
@@ -503,6 +504,7 @@ fun NavGraph(
                 ) {
                     val args = it.toRoute<Routes.PetDetailsScreen>()
                     PetDetailScreen(
+                        navController = navController,
                         index = args.id,
                         sharedTransitionScope = this@SharedTransitionLayout,
                         animatedVisibilityScope = this
@@ -1310,6 +1312,23 @@ fun NavGraph(
                     }
                 ) {
                     LoadInitialDataScreen(navController = navController)
+                }
+                composable<Routes.WebSockets>(
+                    enterTransition = {
+                        return@composable fadeIn(tween(700))
+                    }, popEnterTransition = {
+                        return@composable slideIntoContainer(
+                            AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                        )
+                    }, exitTransition = {
+                        return@composable fadeOut(tween(700))
+                    }, popExitTransition = {
+                        return@composable slideOutOfContainer(
+                            AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                        )
+                    }
+                ) {
+                    WebSocketsScreen(navController = navController)
                 }
             }
         }

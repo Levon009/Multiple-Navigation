@@ -5,6 +5,7 @@ import android.content.IntentFilter
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
@@ -22,6 +23,9 @@ import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.jetpack_multiplenavigation.broadcastDynamicReceiver.AirPlaneModeReceiver
@@ -35,6 +39,8 @@ import com.example.jetpack_multiplenavigation.snackBarSB.snackBar.ObserveSnackBa
 import com.example.jetpack_multiplenavigation.ui.theme.JetPack_MultipleNavigationTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -48,7 +54,7 @@ class MainActivity : ComponentActivity() {
     private val airPlaneModeReceiver = AirPlaneModeReceiver()
 
     //
-    private val flowViewModel by viewModels<FlowViewModel>()
+    private val flowViewModel = viewModels<FlowViewModel>()
     private val imageViewModel by viewModels<ImageViewModel>()
     private val tag = "Kotlin_Flows"
 

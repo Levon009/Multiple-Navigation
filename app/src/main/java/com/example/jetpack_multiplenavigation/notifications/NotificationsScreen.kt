@@ -39,7 +39,7 @@ import com.example.jetpack_multiplenavigation.R
 @Composable
 fun NotificationsScreen(navController: NavHostController) {
     val context = LocalContext.current
-    val launcher = NotificationPermission(context = context)
+    val launcher = notificationPermission(context = context)
     val channelId = NotificationsChannelId.CHANNEL_ID
     val contentTitle = context.resources.getString(R.string.test_notification_title)
     val contentText = context.resources.getString(R.string.test_notification_text)

@@ -15,7 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.core.content.ContextCompat
 
 @Composable
-fun NotificationPermission(context: Context) : ManagedActivityResultLauncher<String, Boolean> {
+fun notificationPermission(context: Context) : ManagedActivityResultLauncher<String, Boolean> {
     var hasNotificationPermission by remember {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             mutableStateOf(

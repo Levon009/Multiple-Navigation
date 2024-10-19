@@ -89,11 +89,13 @@ private fun registerTestReceiver(
     context: Context,
     testReceiver: TestReceiver
 ) {
-    context.registerReceiver(
-        testReceiver,
-        IntentFilter("ACTION_TEST"),
-        Context.RECEIVER_EXPORTED
-    )
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        context.registerReceiver(
+            testReceiver,
+            IntentFilter("ACTION_TEST"),
+            Context.RECEIVER_EXPORTED
+        )
+    }
 }
 
 private fun unregisterTestReceiver(

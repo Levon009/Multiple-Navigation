@@ -259,4 +259,7 @@ sealed class Routes {
 
     @Serializable
     data object LoadInitialData : Routes()
+
+    @Serializable
+    data class WebSockets(val id: Int) : Routes()
 }

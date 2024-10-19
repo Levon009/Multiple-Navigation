@@ -81,13 +81,10 @@
             tools:ignore="DiscouragedApi,LockedOrientationActivity,RedundantLabel">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
-
         <service android:name=".bindedServiceTimer.TimerService" />
         <service
             android:name=".chat.service.ChatFcmService"
@@ -96,7 +93,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <receiver
             android:name=".downloadManager.DownloadCompletedReceiver"
             android:exported="true">
@@ -105,5 +101,4 @@
             </intent-filter>
         </receiver>
     </application>
-
 </manifest>

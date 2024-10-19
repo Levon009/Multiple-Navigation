@@ -33,6 +33,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import com.example.jetpack_multiplenavigation.navigation.Routes
 import com.example.jetpack_multiplenavigation.pet.data.PetDataSource
 import com.example.jetpack_multiplenavigation.pet.detail.imageItem.ImageItem
 import com.example.jetpack_multiplenavigation.pet.detail.menuItems.MenuItem1
@@ -43,6 +45,7 @@ import com.example.jetpack_multiplenavigation.pet.detail.petInfoItem.PetInfoItem
 @OptIn(ExperimentalSharedTransitionApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun PetDetailScreen(
+    navController: NavHostController,
     index: Int,
     sharedTransitionScope: SharedTransitionScope,
     animatedVisibilityScope: AnimatedVisibilityScope,
@@ -101,7 +104,11 @@ fun PetDetailScreen(
                         ) {
                             MenuItem1 {
                                 showMore = false
-                                Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show()
+                                navController.navigate(Routes.WebSockets(1)) {
+                                    popUpTo<Routes.HomeScreen>() {
+                                        inclusive = false
+                                    }
+                                }
                             }
                             MenuItem2 {
                                 showMore = false

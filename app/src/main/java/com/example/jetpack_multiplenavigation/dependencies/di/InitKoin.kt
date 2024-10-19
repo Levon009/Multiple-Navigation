@@ -10,6 +10,7 @@ import com.example.jetpack_multiplenavigation.school.di.schoolDBModule
 import com.example.jetpack_multiplenavigation.snackBarSB.di.snackBarModule
 import com.example.jetpack_multiplenavigation.students.di.studentsDatabaseModule
 import com.example.jetpack_multiplenavigation.uploadFileRetrofit.di.fileUploadRepository
+import com.example.jetpack_multiplenavigation.webSockets.di.webSocketsModule
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
 
@@ -30,7 +31,8 @@ fun initializeKoin(config: KoinAppDeclaration? = null) {
             imageViewModule,
             fileUploadRepository,
             timerServiceModule,
-            chatFcmModule
+            chatFcmModule,
+            webSocketsModule
         )
     }
 }
