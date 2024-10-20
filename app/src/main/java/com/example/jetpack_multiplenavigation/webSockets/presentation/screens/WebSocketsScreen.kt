@@ -1,6 +1,5 @@
 package com.example.jetpack_multiplenavigation.webSockets.presentation.screens
 
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -8,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
@@ -56,6 +56,7 @@ import java.util.Date
 @Composable
 fun WebSocketsScreen(navController: NavHostController) {
     val context = LocalContext.current
+    val lazyListState = rememberLazyListState()
     val keyboard = LocalSoftwareKeyboardController.current
     val viewModel = koinViewModel<WebSocketsViewModel>()
     val state = viewModel.state.collectAsStateWithLifecycle()
@@ -82,7 +83,6 @@ fun WebSocketsScreen(navController: NavHostController) {
 
     LaunchedEffect(key1 = true) {
         viewModel.message.collectLatest {
-            Log.e("LLL", "${message}")
             if (message != it.second) {
                 viewModel.onEvent(MessagesEvents.SaveMessage(
                     MessageDto(
@@ -101,9 +101,9 @@ fun WebSocketsScreen(navController: NavHostController) {
 
     LaunchedEffect(key1 = message) {
         if (message.isNotEmpty()) {
-            delay(1000)
+            delay(400)
             message = ""
-            Log.e("AAA", "${message}")
+            lazyListState.scrollToItem(state.value.messages.lastIndex)
         }
     }
 
@@ -162,6 +162,8 @@ fun WebSocketsScreen(navController: NavHostController) {
                 .padding(paddingValues)
         ) {
             ConnectionSection(
+                lazyListState = lazyListState,
+                lastIndex = state.value.messages.lastIndex,
                 okHttpClient = okHttpClient,
                 webSocketsListener = webSocketsListener,
                 webSocket = webSocket
@@ -176,6 +178,7 @@ fun WebSocketsScreen(navController: NavHostController) {
             )
             Spacer(modifier = Modifier.height(16.dp))
             ListSection(
+                lazyListState = lazyListState,
                 state = state.value,
                 modifier = Modifier.weight(1f)
             )

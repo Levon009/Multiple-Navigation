@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,9 +33,11 @@ import com.example.jetpack_multiplenavigation.webSockets.presentation.messages.M
 @Composable
 fun ListSection(
     modifier: Modifier = Modifier,
+    lazyListState: LazyListState,
     state: MessageState
 ) {
     LazyColumn(
+        state = lazyListState,
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp)
@@ -44,7 +47,9 @@ fun ListSection(
         items(state.messages) { message ->
             Row(
                 horizontalArrangement = if (message.isOwner) Arrangement.End else Arrangement.Start,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 12.dp)
             ) {
                 Card(
                     elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
