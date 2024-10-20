@@ -15,7 +15,7 @@ import com.example.jetpack_multiplenavigation.notes.domain.util.OrderType
 @Composable
 fun OrderSection(
     modifier: Modifier = Modifier,
-    noteOrder: NoteOrder = NoteOrder.Data(OrderType.Descending),
+    noteOrder: NoteOrder = NoteOrder.Date(OrderType.Descending),
     onOrderChange: (NoteOrder) -> Unit
 ) {
     Column(modifier = modifier) {
@@ -30,9 +30,9 @@ fun OrderSection(
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Date",
-                selected = noteOrder is NoteOrder.Data,
+                selected = noteOrder is NoteOrder.Date,
                 onSelect = {
-                    onOrderChange(NoteOrder.Data(noteOrder.orderType))
+                    onOrderChange(NoteOrder.Date(noteOrder.orderType))
                 }
             )
             Spacer(modifier = Modifier.width(8.dp))

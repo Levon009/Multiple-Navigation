@@ -57,7 +57,7 @@ class GetNotesTest {
 
     @Test
     fun `Order notes by date ascending, correct order`() = runBlocking {
-        val notes = getNotes(NoteOrder.Data(OrderType.Ascending)).first()
+        val notes = getNotes(NoteOrder.Date(OrderType.Ascending)).first()
 
         for (i in 0..notes.size - 2) {
             assertThat(notes[i].title).isLessThan(notes[i + 1].title)
@@ -66,7 +66,7 @@ class GetNotesTest {
 
     @Test
     fun `Order notes by date descending, correct order`() = runBlocking {
-        val notes = getNotes(NoteOrder.Data(OrderType.Descending)).first()
+        val notes = getNotes(NoteOrder.Date(OrderType.Descending)).first()
 
         for (i in 0..notes.size - 2) {
             assertThat(notes[i].timestamp).isGreaterThan(notes[i + 1].timestamp)

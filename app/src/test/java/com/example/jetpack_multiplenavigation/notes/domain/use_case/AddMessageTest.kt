@@ -8,7 +8,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-class AddNoteTest {
+class AddMessageTest {
     private lateinit var addNote: AddNote
     private lateinit var testNotesRepositoryImpl: TestNotesRepositoryImpl
 

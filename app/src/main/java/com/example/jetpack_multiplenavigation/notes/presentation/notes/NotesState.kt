@@ -6,6 +6,6 @@ import com.example.jetpack_multiplenavigation.notes.domain.util.OrderType
 
 data class NotesState(
     val notes: List<Note> = emptyList(),
-    val noteOrder: NoteOrder = NoteOrder.Data(OrderType.Descending),
+    val noteOrder: NoteOrder = NoteOrder.Date(OrderType.Descending),
     val isOrderSectionVisible: Boolean = false
 )
