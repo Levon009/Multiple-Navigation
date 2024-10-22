@@ -10,4 +10,6 @@ interface MessagesRepository {
     suspend fun upsertMessage(message: MessageDto)
 
     suspend fun deleteMessage(message: MessageDto)
+
+    suspend fun deleteAllMessages()
 }

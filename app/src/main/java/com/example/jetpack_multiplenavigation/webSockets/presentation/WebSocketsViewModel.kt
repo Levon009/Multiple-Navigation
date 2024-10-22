@@ -71,6 +71,12 @@ class WebSocketsViewModel(
 
                 getMessages(events.messagesOrder)
             }
+
+            MessagesEvents.DeleteAllMessages -> {
+                viewModelScope.launch {
+                    messagesUseCases.deleteAllMessages.invoke()
+                }
+            }
         }
     }
 

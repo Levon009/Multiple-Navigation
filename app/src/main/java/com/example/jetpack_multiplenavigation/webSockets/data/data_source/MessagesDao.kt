@@ -16,6 +16,9 @@ interface MessagesDao {
     @Delete
     suspend fun deleteMessage(message: MessageDto)
 
+    @Query("DELETE FROM messages")
+    suspend fun deleteAllMessages()
+
     @Query("SELECT * FROM messages ORDER BY timestamp")
     fun getAllMessages() : Flow<List<MessageDto>>
 

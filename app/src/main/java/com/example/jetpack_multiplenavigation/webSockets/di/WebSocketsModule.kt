@@ -4,6 +4,7 @@ import com.example.jetpack_multiplenavigation.webSockets.data.data_source.Messag
 import com.example.jetpack_multiplenavigation.webSockets.data.repository.MessagesRepositoryImpl
 import com.example.jetpack_multiplenavigation.webSockets.domain.repository.MessagesRepository
 import com.example.jetpack_multiplenavigation.webSockets.domain.use_cases.AddMessage
+import com.example.jetpack_multiplenavigation.webSockets.domain.use_cases.DeleteAllMessages
 import com.example.jetpack_multiplenavigation.webSockets.domain.use_cases.DeleteMessage
 import com.example.jetpack_multiplenavigation.webSockets.domain.use_cases.GetMessages
 import com.example.jetpack_multiplenavigation.webSockets.domain.use_cases.MessagesUseCases
@@ -20,6 +21,7 @@ val webSocketsModules = module {
     singleOf(::AddMessage)
     singleOf(::DeleteMessage)
     singleOf(::GetMessages)
+    singleOf(::DeleteAllMessages)
     singleOf(::MessagesUseCases)
     viewModelOf(::WebSocketsViewModel)
 }

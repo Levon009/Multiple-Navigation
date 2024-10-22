@@ -39,7 +39,7 @@ fun ConnectionSection(
             onClick = {
                 webSocket.value = okHttpClient.newWebSocket(WebSocketsRequest.request, webSocketsListener)
                 scope.launch {
-                    lazyListState.animateScrollToItem(lastIndex)
+                    if (lastIndex > 0) lazyListState.animateScrollToItem(lastIndex)
                 }
             },
             elevation = ButtonDefaults.buttonElevation(25.dp)

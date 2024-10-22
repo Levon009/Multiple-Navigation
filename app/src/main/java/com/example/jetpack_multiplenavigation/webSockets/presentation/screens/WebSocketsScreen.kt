@@ -1,5 +1,6 @@
 package com.example.jetpack_multiplenavigation.webSockets.presentation.screens
 
+import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -22,6 +24,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -43,6 +46,8 @@ import com.example.jetpack_multiplenavigation.webSockets.presentation.WebSockets
 import com.example.jetpack_multiplenavigation.webSockets.presentation.components.ConnectionSection
 import com.example.jetpack_multiplenavigation.webSockets.presentation.components.ListSection
 import com.example.jetpack_multiplenavigation.webSockets.presentation.components.MessageSection
+import com.example.jetpack_multiplenavigation.webSockets.presentation.components.optionMenu.SocketsDropDownMenu
+import com.example.jetpack_multiplenavigation.webSockets.presentation.components.optionMenu.socketsMenuItems
 import com.example.jetpack_multiplenavigation.webSockets.presentation.messages.MessagesEvents
 import com.example.jetpack_multiplenavigation.webSockets.presentation.model.MessageDto
 import kotlinx.coroutines.delay
@@ -62,16 +67,19 @@ fun WebSocketsScreen(navController: NavHostController) {
     val state = viewModel.state.collectAsStateWithLifecycle()
     val webSocketsListener = WebSocketsListener(viewModel)
     val okHttpClient = OkHttpClient()
-    val webSocket = rememberSaveable {
+    val webSocket = remember {
         mutableStateOf<WebSocket?>(null)
     }
-    val text = remember {
+    val showOptionMenu = remember {
+        mutableStateOf(false)
+    }
+    val text = rememberSaveable {
         mutableStateOf("")
     }
-    var connected by remember {
+    var connected by rememberSaveable {
         mutableStateOf("")
     }
-    var message by remember {
+    var message by rememberSaveable {
         mutableStateOf("")
     }
 
@@ -141,13 +149,18 @@ fun WebSocketsScreen(navController: NavHostController) {
                         )
                     }
                     IconButton(onClick = {
-
+                        showOptionMenu.value = !showOptionMenu.value
                     }) {
                         Icon(
                             imageVector = Icons.Default.MoreVert,
                             contentDescription = "Menu"
                         )
                     }
+                    SocketsOptionMenu(
+                        context = context,
+                        showMenu = showOptionMenu,
+                        viewModel = viewModel
+                    )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Transparent
@@ -189,6 +202,35 @@ fun WebSocketsScreen(navController: NavHostController) {
                 webSocket = webSocket.value,
                 viewModel = viewModel
             )
+        }
+    }
+}
+
+@Composable
+private fun SocketsOptionMenu(
+    context: Context,
+    showMenu: MutableState<Boolean>,
+    viewModel: WebSocketsViewModel,
+) {
+    DropdownMenu(
+        expanded = showMenu.value,
+        onDismissRequest = {
+            showMenu.value = false
+        }
+    ) {
+        socketsMenuItems.forEach { item ->
+            SocketsDropDownMenu(socketsOptionMenuItem = item) { id ->
+                when (id) {
+                    0 -> {
+                        Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show()
+                        showMenu.value = false
+                    }
+                    1 -> {
+                        viewModel.onEvent(MessagesEvents.DeleteAllMessages)
+                        showMenu.value = false
+                    }
+                }
+            }
         }
     }
 }

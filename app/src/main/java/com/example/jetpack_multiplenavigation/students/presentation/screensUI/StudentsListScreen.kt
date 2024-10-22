@@ -146,7 +146,7 @@ fun StudentsListScreen(
                     key = { _, student ->
                         student.hashCode()
                     }
-                ) { index, student ->
+                ) { _, student ->
                     SwipeToRefreshStudentContainer(
                         student = student,
                         onRemove = {

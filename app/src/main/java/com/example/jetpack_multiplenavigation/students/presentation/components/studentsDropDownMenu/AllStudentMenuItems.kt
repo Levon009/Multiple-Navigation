@@ -2,11 +2,8 @@ package com.example.jetpack_multiplenavigation.students.presentation.components.
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.ExitToApp
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Language
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
 

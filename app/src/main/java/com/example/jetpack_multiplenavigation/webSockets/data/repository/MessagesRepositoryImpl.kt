@@ -20,4 +20,8 @@ class MessagesRepositoryImpl(
     override suspend fun deleteMessage(message: MessageDto) {
         dao.deleteMessage(message)
     }
+
+    override suspend fun deleteAllMessages() {
+        dao.deleteAllMessages()
+    }
 }

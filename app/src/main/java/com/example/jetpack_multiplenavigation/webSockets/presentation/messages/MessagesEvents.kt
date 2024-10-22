@@ -8,4 +8,5 @@ sealed class MessagesEvents {
     data class SaveMessage(val message: MessageDto) : MessagesEvents()
     data class Order(val messagesOrder: MessagesOrder) : MessagesEvents()
     data class DeleteMessage(val messageDto: MessageDto) : MessagesEvents()
+    data object DeleteAllMessages : MessagesEvents()
 }
