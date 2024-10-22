@@ -42,7 +42,7 @@ fun DropDown(
         targetValue = if (isOpened) 1f else 0f,
         animationSpec = tween(
             durationMillis = 300
-        )
+        ), label = ""
     )
     val rotateX = animateFloatAsState(
         targetValue = if (isOpened) 0f else -90f,

@@ -1,5 +1,6 @@
 package com.example.jetpack_multiplenavigation.personsListFull
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.widget.Toast
 import androidx.compose.foundation.LocalIndication
@@ -48,6 +49,7 @@ import com.example.jetpack_multiplenavigation.personsListFull.dragDropListItem.D
 import com.example.jetpack_multiplenavigation.personsListFull.dropOptionMenu.DropMenuItem
 import com.example.jetpack_multiplenavigation.personsListFull.dropOptionMenu.DropOptionMenuItem
 
+@SuppressLint("UnnecessaryComposedModifier")
 @Composable
 fun ListItemContent(
     name: String,

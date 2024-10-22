@@ -1,5 +1,6 @@
 package com.example.jetpack_multiplenavigation.dragDropListItem
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -32,6 +33,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+@SuppressLint("UnnecessaryComposedModifier")
 @Composable
 fun ListItemUI(
     text: String,

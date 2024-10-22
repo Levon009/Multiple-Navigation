@@ -213,6 +213,7 @@ fun FeatureSection(
                         2 -> navController.navigate(Routes.Notes)
                         3 -> navController.navigate(Routes.CircleAnimation)
                         4 -> navController.navigate(Routes.MatrixEffect)
+                        5 -> navController.navigate(Routes.CircleTouch)
                         6 -> navController.navigate(Routes.Products)
                         7 -> navController.navigate(Routes.PersonsListFull(
                             supportingText = "Person Item"

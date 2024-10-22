@@ -262,4 +262,7 @@ sealed class Routes {
 
     @Serializable
     data class WebSockets(val id: Int) : Routes()
+
+    @Serializable
+    data object CircleTouch : Routes()
 }
