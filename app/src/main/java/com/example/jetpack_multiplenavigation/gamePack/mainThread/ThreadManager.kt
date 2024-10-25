@@ -4,8 +4,8 @@ import android.view.SurfaceHolder
 import com.example.jetpack_multiplenavigation.gamePack.panel.GamePanel
 
 class ThreadManager(
-    surfaceHolder: SurfaceHolder,
-    gamePanel: GamePanel
+    private val surfaceHolder: SurfaceHolder,
+    private val gamePanel: GamePanel
 ) {
     private var mainThread: MainThread? = null
 
