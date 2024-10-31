@@ -1,4 +1,4 @@
-package com.example.airfighers_jetpack.gamePack.views.explosion
+package com.example.jetpack_multiplenavigation.gamePack.views.explosion
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -6,7 +6,6 @@ import com.example.jetpack_multiplenavigation.gamePack.framesAnimation.FramesAni
 
 class Explosion(bitmap: Bitmap, mX: Int, mY: Int, mWidth: Int, mHeight: Int, framesCount: Int) {
     private val framesAnimation = FramesAnimation()
-    private var bitmap: Bitmap
     private var mX: Int = 0
     private var mY: Int = 0
     private var mWidth: Int = 0
@@ -14,7 +13,6 @@ class Explosion(bitmap: Bitmap, mX: Int, mY: Int, mWidth: Int, mHeight: Int, fra
     private var row: Int = 0
 
     init {
-        this.bitmap = bitmap
         this.mX = mX
         this.mY = mY
         this.mWidth = mWidth
@@ -31,12 +29,12 @@ class Explosion(bitmap: Bitmap, mX: Int, mY: Int, mWidth: Int, mHeight: Int, fra
         framesAnimation.setDelay(10)
     }
 
-    open fun update() {
+    fun update() {
         if (!framesAnimation.isPlayedOnce())
             framesAnimation.update()
     }
 
-    open fun draw(canvas: Canvas) {
+    fun draw(canvas: Canvas) {
         if (!framesAnimation.isPlayedOnce())
             canvas.drawBitmap(framesAnimation.getFrame(), mX.toFloat(), mY.toFloat(), null)
     }

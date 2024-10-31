@@ -55,7 +55,7 @@ class AirObject(
         this.up = up
     }
 
-    open fun setFlying(flying: Boolean) {
+    fun setFlying(flying: Boolean) {
         this.flying = flying
     }
 
