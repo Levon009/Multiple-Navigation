@@ -54,7 +54,7 @@ fun MeditationScreen(
                     scope.launch {
                         delay(1500L)
                         navController.navigate(Routes.SearchScreen) {
-                            popUpTo<Routes.HomeScreen>() {
+                            popUpTo<Routes.HomeScreen> {
                                 inclusive = false
                             }
                         }
@@ -75,7 +75,7 @@ fun MeditationScreen(
                         5 -> navController.navigate(Routes.ProduceStateSection(0))
                         6 -> {
                             navController.navigate(Routes.Search2Section) {
-                                popUpTo<Routes.HomeScreen>() {
+                                popUpTo<Routes.HomeScreen> {
                                     inclusive = false
                                 }
                             }
@@ -89,14 +89,14 @@ fun MeditationScreen(
                         11 -> navController.navigate(Routes.ExpendableList)
                         12 -> {
                             navController.navigate(Routes.PickSaveImage) {
-                                popUpTo<Routes.HomeScreen>() {
+                                popUpTo<Routes.HomeScreen> {
                                     inclusive = false
                                 }
                             }
                         }
                         13 -> {
                             navController.navigate(Routes.Koin1) {
-                                popUpTo<Routes.HomeScreen>() {
+                                popUpTo<Routes.HomeScreen> {
                                     inclusive = false
                                 }
                             }
@@ -114,6 +114,13 @@ fun MeditationScreen(
                         20 -> {
                             Intent(context, RecyclerActivity::class.java).apply {
                                 context.startActivity(this)
+                            }
+                        }
+                        21 -> {
+                            navController.navigate(Routes.Fruits) {
+                                popUpTo<Routes.HomeScreen> {
+                                    inclusive = false
+                                }
                             }
                         }
                     }

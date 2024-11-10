@@ -54,6 +54,7 @@ import com.example.jetpack_multiplenavigation.employee_dependencies.presentation
 import com.example.jetpack_multiplenavigation.expandableBox.ExpandableBox
 import com.example.jetpack_multiplenavigation.expendableList.ExpendedLanguagesScreen
 import com.example.jetpack_multiplenavigation.expendableMenu.PersonsScreen
+import com.example.jetpack_multiplenavigation.fruits.presentation.screens.FruitsScreen
 import com.example.jetpack_multiplenavigation.home.HomeScreen
 import com.example.jetpack_multiplenavigation.instagram.InstagramScreen
 import com.example.jetpack_multiplenavigation.intents.IntentsScreen
@@ -1347,6 +1348,23 @@ fun NavGraph(
                     }
                 ) {
                     CircleTouchScreen()
+                }
+                composable<Routes.Fruits>(
+                    enterTransition = {
+                        return@composable fadeIn(tween(700))
+                    }, popEnterTransition = {
+                        return@composable slideIntoContainer(
+                            AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                        )
+                    }, exitTransition = {
+                        return@composable fadeOut(tween(700))
+                    }, popExitTransition = {
+                        return@composable slideOutOfContainer(
+                            AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                        )
+                    }
+                ) {
+                    FruitsScreen(navController = navController)
                 }
             }
         }

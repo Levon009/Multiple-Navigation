@@ -47,7 +47,8 @@ fun getChips() : List<String> {
         "Constraints",
         "Observable",
         "LoadInitialData",
-        "RecyclerPayloads"
+        "RecyclerPayloads",
+        "fruits"
     )
 }
 

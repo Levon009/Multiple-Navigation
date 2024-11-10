@@ -265,4 +265,7 @@ sealed class Routes {
 
     @Serializable
     data object CircleTouch : Routes()
+
+    @Serializable
+    data object Fruits : Routes()
 }
