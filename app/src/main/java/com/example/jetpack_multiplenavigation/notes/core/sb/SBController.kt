@@ -1,4 +1,4 @@
-package com.example.jetpack_multiplenavigation.notes.sb
+package com.example.jetpack_multiplenavigation.notes.core.sb
 
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow

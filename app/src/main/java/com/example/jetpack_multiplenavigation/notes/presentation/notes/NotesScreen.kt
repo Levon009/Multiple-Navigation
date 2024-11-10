@@ -54,10 +54,10 @@ import com.example.jetpack_multiplenavigation.notes.core.util.TestTags
 import com.example.jetpack_multiplenavigation.notes.presentation.deleteWithSwipe.SwipeDeleteNoteContainer
 import com.example.jetpack_multiplenavigation.notes.presentation.notes.components.NoteItem
 import com.example.jetpack_multiplenavigation.notes.presentation.notes.components.OrderSection
-import com.example.jetpack_multiplenavigation.notes.sb.ObserveSB
-import com.example.jetpack_multiplenavigation.notes.sb.SBAction
-import com.example.jetpack_multiplenavigation.notes.sb.SBController
-import com.example.jetpack_multiplenavigation.notes.sb.SBEvent
+import com.example.jetpack_multiplenavigation.notes.core.sb.ObserveSB
+import com.example.jetpack_multiplenavigation.notes.core.sb.SBAction
+import com.example.jetpack_multiplenavigation.notes.core.sb.SBController
+import com.example.jetpack_multiplenavigation.notes.core.sb.SBEvent
 import com.example.jetpack_multiplenavigation.scrollToTopButton.ScrollToTopButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

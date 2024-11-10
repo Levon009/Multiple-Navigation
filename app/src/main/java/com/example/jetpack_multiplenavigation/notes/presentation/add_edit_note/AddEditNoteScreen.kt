@@ -49,9 +49,9 @@ import androidx.navigation.NavHostController
 import com.example.jetpack_multiplenavigation.notes.core.util.TestTags
 import com.example.jetpack_multiplenavigation.notes.domain.model.Note
 import com.example.jetpack_multiplenavigation.notes.presentation.add_edit_note.components.TransparentHintTextField
-import com.example.jetpack_multiplenavigation.notes.sb.ObserveSB
-import com.example.jetpack_multiplenavigation.notes.sb.SBController
-import com.example.jetpack_multiplenavigation.notes.sb.SBEvent
+import com.example.jetpack_multiplenavigation.notes.core.sb.ObserveSB
+import com.example.jetpack_multiplenavigation.notes.core.sb.SBController
+import com.example.jetpack_multiplenavigation.notes.core.sb.SBEvent
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

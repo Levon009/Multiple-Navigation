@@ -1,4 +1,4 @@
-package com.example.jetpack_multiplenavigation.notes.sb
+package com.example.jetpack_multiplenavigation.notes.core.sb
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult

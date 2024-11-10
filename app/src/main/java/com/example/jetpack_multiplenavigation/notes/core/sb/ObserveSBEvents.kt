@@ -1,4 +1,4 @@
-package com.example.jetpack_multiplenavigation.notes.sb
+package com.example.jetpack_multiplenavigation.notes.core.sb
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
